@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PAIH · Plataforma de Analítica e Inteligencia Hospitalaria</title>
-<meta name="description" content="Plataforma de Analítica e Inteligencia Hospitalaria. Transformamos datos hospitalarios en decisiones.">
+<meta name="description" content="Business Intelligence especializado para hospitales. Transformamos datos hospitalarios en decisiones.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -209,6 +209,22 @@
   .legend{font-size:12.5px;color:var(--slate);display:flex;flex-direction:column;gap:6px;}
   .legend .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;}
 
+  .dash-tabs{
+    flex-wrap:wrap;gap:6px;padding:10px 12px;
+  }
+  .dtab{
+    font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;
+    color:var(--slate);background:transparent;border:1px solid transparent;border-radius:7px;
+    padding:8px 14px;cursor:pointer;transition:all .2s ease;
+  }
+  .dtab:hover{color:var(--ink);background:#EEF2F3;}
+  .dtab.active{color:var(--ink);background:#fff;border-color:var(--line);box-shadow:0 1px 2px rgba(11,37,66,0.06);}
+  .dash-views{position:relative;background:#F3F5F6;}
+  .dview{margin:0;display:none;}
+  .dview.active{display:block;animation:fadein .35s ease;}
+  @keyframes fadein{from{opacity:0;}to{opacity:1;}}
+  .dview img{width:100%;height:auto;display:block;}
+
   .dash-note{
     display:flex;gap:14px;align-items:flex-start;margin-top:34px;padding:20px 22px;
     border:1px dashed var(--line);border-radius:var(--radius);background:var(--card);
@@ -279,7 +295,7 @@
   <!-- ===== INICIO ===== -->
   <section id="inicio" class="hero">
     <div class="wrap">
-      <span class="eyebrow">Plataforma de Analítica e Inteligencia Hospitalaria</span>
+      <span class="eyebrow">Business Intelligence hospitalario</span>
       <h1>Transformando datos<br>hospitalarios en <em>decisiones</em>.</h1>
       <p class="lead">PAIH es la plataforma de analítica e inteligencia para hospitales y clínicas: dashboards en Power BI conectados a tus sistemas de facturación, cartera y gestión clínica, listos para decidir en tiempo real.</p>
       <div class="cta-row">
@@ -362,63 +378,25 @@
       </div>
 
       <div class="dash-shell">
-        <div class="dash-topbar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="label">PAIH · Dashboard Ejecutivo — vista de ejemplo</span>
+        <div class="dash-topbar dash-tabs" role="tablist" aria-label="Selector de dashboard">
+          <button class="dtab active" role="tab" aria-selected="true" data-target="dv-ingresos">Análisis de Ingresos</button>
+          <button class="dtab" role="tab" aria-selected="false" data-target="dv-facturacion">Análisis de Facturación</button>
+          <button class="dtab" role="tab" aria-selected="false" data-target="dv-glosas-gestion">Gestión de Glosas</button>
+          <button class="dtab" role="tab" aria-selected="false" data-target="dv-glosas-analisis">Análisis de Glosa</button>
         </div>
-        <div class="dash-grid">
-          <div class="kpi">
-            <div class="k-label">Facturación del mes</div>
-            <div class="k-value">$482M</div>
-            <div class="k-delta">+6.4% vs. mes anterior</div>
-          </div>
-          <div class="kpi">
-            <div class="k-label">Glosas activas</div>
-            <div class="k-value">3.2%</div>
-            <div class="k-delta down">−1.1 pts vs. meta</div>
-          </div>
-          <div class="kpi">
-            <div class="k-label">Cartera &gt; 90 días</div>
-            <div class="k-value">$96M</div>
-            <div class="k-delta down">+2.3% vs. mes anterior</div>
-          </div>
-          <div class="kpi">
-            <div class="k-label">Cumplimiento de meta</div>
-            <div class="k-value">94%</div>
-            <div class="k-delta">+3 pts vs. meta</div>
-          </div>
-        </div>
-        <div class="chart-row">
-          <div class="chart-card">
-            <h4>Facturación por servicio</h4>
-            <div class="bars-mini">
-              <div style="height:55%"></div>
-              <div style="height:80%"></div>
-              <div style="height:40%"></div>
-              <div style="height:95%"></div>
-              <div style="height:65%"></div>
-              <div style="height:70%"></div>
-              <div style="height:50%"></div>
-              <div style="height:85%"></div>
-            </div>
-          </div>
-          <div class="chart-card">
-            <h4>Cartera por pagador</h4>
-            <div class="donut-wrap">
-              <svg width="86" height="86" viewBox="0 0 36 36">
-                <circle cx="18" cy="18" r="15.5" fill="none" stroke="#E3E9EC" stroke-width="5"/>
-                <circle cx="18" cy="18" r="15.5" fill="none" stroke="#0D9C8F" stroke-width="5"
-                  stroke-dasharray="58 100" stroke-dashoffset="25" stroke-linecap="round"/>
-                <circle cx="18" cy="18" r="15.5" fill="none" stroke="#0B2542" stroke-width="5"
-                  stroke-dasharray="22 100" stroke-dashoffset="-33" stroke-linecap="round"/>
-              </svg>
-              <div class="legend">
-                <span><span class="sw" style="background:#0D9C8F"></span>EPS</span>
-                <span><span class="sw" style="background:#0B2542"></span>Particulares</span>
-                <span><span class="sw" style="background:#E3E9EC"></span>Otros</span>
-              </div>
-            </div>
-          </div>
+        <div class="dash-views">
+          <figure class="dview active" id="dv-ingresos">
+            <img src="img/dashboard-ingresos.png" alt="Dashboard de Análisis de Ingresos en Power BI, con total de ingresos, ingresos por estado, por EPS, por tipo y por centro de atención">
+          </figure>
+          <figure class="dview" id="dv-facturacion">
+            <img src="img/dashboard-facturacion.png" alt="Dashboard de Análisis de Facturación en Power BI, con facturación del periodo, valor por régimen, por EPS, por centro de atención y por factura">
+          </figure>
+          <figure class="dview" id="dv-glosas-gestion">
+            <img src="img/dashboard-glosas-gestion.png" alt="Dashboard de Gestión de Glosas en Power BI, con glosas pendientes por mes, por EPS y por semáforo de tiempos">
+          </figure>
+          <figure class="dview" id="dv-glosas-analisis">
+            <img src="img/dashboard-glosas-analisis.png" alt="Dashboard de Análisis de Glosa en Power BI, con valor objetado por concepto, por EPS, por régimen y por estado">
+          </figure>
         </div>
       </div>
 
@@ -529,6 +507,16 @@
     navLinks.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
   }));
+
+  document.querySelectorAll('.dtab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.dtab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.dview').forEach(v => v.classList.remove('active'));
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
 </script>
 
 </body>
