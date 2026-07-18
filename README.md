@@ -1,2 +1,2 @@
 # paih-web
-plataforma analitica e inteligencia hospitalaria
+plataforma de analitica e inteligencia hospitalaria
