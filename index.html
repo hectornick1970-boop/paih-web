@@ -268,6 +268,9 @@
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
   @media (max-width:520px){.row2{grid-template-columns:1fr;}}
   form .btn{align-self:flex-start;margin-top:6px;}
+  .form-status{margin:0;font-size:13.5px;min-height:18px;}
+  .form-status.ok{color:var(--teal);}
+  .form-status.err{color:#C0503A;}
 
   footer{border-top:1px solid var(--line);padding:34px 0;}
   .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
@@ -368,7 +371,7 @@
           <span class="p-tag">Cuentas por cobrar</span>
           <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
           <h3>PAIH Cartera</h3>
-          <p>Antigüedad de saldos, cartera por pagador, para priorizar la gestión de cobro con datos actualizados.</p>
+          <p>Antigüedad de saldos, cartera por edad y por pagador, para priorizar la gestión de cobro con datos actualizados.</p>
         </div>
         <div class="p-card">
           <span class="p-tag">Dirección</span>
@@ -479,26 +482,30 @@
           </div>
         </div>
 
-        <form onsubmit="return false;">
+        <form id="contactForm">
           <div class="row2">
             <div class="field">
               <label for="nombre">Nombre</label>
-              <input id="nombre" type="text" placeholder="Tu nombre" required>
+              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
             </div>
             <div class="field">
               <label for="hospital">Institución</label>
-              <input id="hospital" type="text" placeholder="Nombre del hospital o clínica" required>
+              <input id="hospital" name="institucion" type="text" placeholder="Nombre del hospital o clínica" required>
             </div>
           </div>
           <div class="field">
             <label for="correo">Correo</label>
-            <input id="correo" type="email" placeholder="nombre@institucion.com" required>
+            <input id="correo" name="correo" type="email" placeholder="nombre@institucion.com" required>
           </div>
           <div class="field">
             <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" placeholder="Cuéntanos qué indicadores necesitas visualizar"></textarea>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué indicadores necesitas visualizar"></textarea>
           </div>
-          <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde paih.net">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <button class="btn btn-primary" type="submit" id="contactSubmit">Enviar mensaje</button>
+          <p id="contactStatus" class="form-status" role="status"></p>
         </form>
       </div>
     </div>
@@ -546,6 +553,41 @@
       .then(res => res.json())
       .then(data => { countEl.textContent = data.value.toLocaleString('es-CO'); })
       .catch(() => { countEl.parentElement.parentElement.style.display = 'none'; });
+  })();
+
+  // Formulario de contacto -> se envía a hector_nick@hotmail.com vía FormSubmit (sin backend propio)
+  (function () {
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('contactStatus');
+    const submitBtn = document.getElementById('contactSubmit');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      status.textContent = '';
+      status.className = 'form-status';
+
+      fetch('https://formsubmit.co/ajax/hector_nick@hotmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      })
+        .then(res => res.json())
+        .then(() => {
+          status.textContent = 'Mensaje enviado. Te responderemos pronto.';
+          status.className = 'form-status ok';
+          form.reset();
+        })
+        .catch(() => {
+          status.textContent = 'No se pudo enviar. Intenta de nuevo o escríbenos directo a hector_nick@hotmail.com.';
+          status.className = 'form-status err';
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Enviar mensaje';
+        });
+    });
   })();
 </script>
 
