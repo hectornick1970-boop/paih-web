@@ -275,6 +275,14 @@
   .foot-brand .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);}
   footer .slogan{font-size:13px;color:var(--slate-soft);}
   footer .copy{font-size:12.5px;color:var(--slate-soft);font-family:'IBM Plex Mono',monospace;}
+
+  .visit-counter{
+    display:flex;align-items:center;gap:7px;
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--slate-soft);
+    border:1px solid var(--line);border-radius:100px;padding:5px 12px;
+  }
+  .visit-counter svg{width:14px;height:14px;color:var(--teal);flex-shrink:0;}
+  .visit-counter b{color:var(--ink);font-weight:600;}
 </style>
 </head>
 <body>
@@ -463,11 +471,11 @@
           </div>
           <div class="info-line">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v4a2 2 0 01-2 2C9 21 3 15 3 6a2 2 0 011-2z"/></svg>
-            <span>+57 313 401 6630</span>
+            <a href="https://wa.me/573134016630" target="_blank" rel="noopener">+57 313 401 6630 (WhatsApp)</a>
           </div>
           <div class="info-line">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="10" r="3"/><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/></svg>
-            <span>https://paih.net/</span>
+            <span>www.paih.net</span>
           </div>
         </div>
 
@@ -501,6 +509,10 @@
   <div class="wrap foot-row">
     <div class="foot-brand"><span class="dot"></span>PAIH</div>
     <span class="slogan">Transformando datos hospitalarios en decisiones.</span>
+    <span class="visit-counter" id="visitCounter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Visitas: <b id="visitCount">…</b></span>
+    </span>
     <span class="copy">© 2026 PAIH — paih.net</span>
   </div>
 </footer>
@@ -526,6 +538,15 @@
       document.getElementById(tab.dataset.target).classList.add('active');
     });
   });
+
+  // Contador de visitas (CountAPI: servicio gratuito, sin necesidad de servidor propio)
+  (function () {
+    const countEl = document.getElementById('visitCount');
+    fetch('https://api.countapi.xyz/hit/paih-net-site/visitas-home')
+      .then(res => res.json())
+      .then(data => { countEl.textContent = data.value.toLocaleString('es-CO'); })
+      .catch(() => { countEl.parentElement.parentElement.style.display = 'none'; });
+  })();
 </script>
 
 </body>
