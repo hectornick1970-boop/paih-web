@@ -6,12 +6,12 @@ PAIH es una plataforma comercial de analítica en Power BI para hospitales y cl�
 
 Este repositorio contiene el sitio web comercial de PAIH: una landing page de una sola página, autocontenida en un único archivo HTML, publicada en GitHub Pages.
 
-## Qué muestra el sitio
+## Contenido del sitio
 
 - **Menú interactivo de lienzos** (`#productos`): cada módulo activo se despliega en una tarjeta con sus lienzos. Al hacer clic en un lienzo se abre un modal con una captura del tablero real y una explicación de qué significan sus cifras.
 - **Roadmap** (`#proximamente`): módulos en construcción, listados con su estado.
 - **Sección de clientes** (`#clientes`) y **formulario de contacto** (`#contacto`), con envío funcional vía FormSubmit.
-- **Botón flotante de WhatsApp** y **contador de visitas** (vía CountAPI).
+- **Botón flotante de WhatsApp**, **contador de visitas** (vía CountAPI) y animaciones con soporte de `prefers-reduced-motion`.
 
 ## Módulos activos y lienzos
 
@@ -23,7 +23,15 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 | Radicación | Envío, RecibidoEps |
 | Glosas y Trámites | Semáforo de Glosas, Glosas, Trámites, Gestión Trámites |
 
-En roadmap (aún no publicados en el sitio): Hospitalización (Estancia, Egresos), Contratos IPS (Contratos IPS, PBS), Cartera a Fecha de Corte, Cartera por Edades, Producción por Áreas de Servicio.
+En total: **5 módulos y 14 lienzos** publicados.
+
+### En roadmap (aún no publicados en el sitio)
+
+- Hospitalización (Estancia, Egresos)
+- Contratos IPS (Contratos IPS, PBS)
+- Cartera a Fecha de Corte
+- Cartera por Edades
+- Producción por Áreas de Servicio
 
 ## Privacidad de las capturas
 
@@ -41,15 +49,35 @@ Todas las capturas de tableros que aparecen en el sitio están anonimizadas ante
 - Tipografía: IBM Plex Sans / IBM Plex Mono
 - Formulario de contacto: [FormSubmit](https://formsubmit.co)
 - Contador de visitas: [CountAPI](https://countapi.xyz)
-- Hosting: GitHub Pages
+- Hosting: GitHub Pages (dominio `paih.net` vía `CNAME`)
 - Fuente de los datos mostrados: Power BI Service, conectado a Dinámica Gerencial Hospitalaria vía gateway on-premises
+
+## Estructura del repositorio
+
+```
+paih-web/
+├── index.html    # Sitio completo (HTML + CSS + JS, imágenes embebidas)
+├── img/          # Capturas de lienzos usadas en los modales
+├── CNAME         # Dominio personalizado para GitHub Pages
+└── README.md
+```
+
+## Ver el sitio en local
+
+Al ser un archivo estático, solo abre `index.html` en tu navegador. También puedes servir la carpeta con cualquier servidor simple, por ejemplo:
+
+```bash
+python -m http.server 8000
+```
+
+y luego visitar `http://localhost:8000`.
 
 ## Publicar cambios
 
 El sitio es un único archivo `index.html` autocontenido (imágenes incrustadas en base64). Para actualizarlo:
 
 1. Editar `index.html` en este repositorio (o reemplazarlo por una versión nueva).
-2. Confirmar el cambio (`commit`) sobre la rama de publicación de GitHub Pages.
+2. Confirmar el cambio (`commit`) y enviarlo a la rama `main`.
 3. GitHub Pages republica automáticamente en `paih.net` en uno o dos minutos.
 
 ## Contacto
