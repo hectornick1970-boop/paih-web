@@ -22,15 +22,16 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 | Facturación | Facturación, Snapshot Facturación |
 | Radicación | Envío, RecibidoEps |
 | Glosas y Trámites | Semáforo de Glosas, Glosas, Trámites, Gestión Trámites |
+| Hospitalización | Estancia, Egresos |
+| Contratos IPS | Contratos IPS, PBS |
+| Cartera | Cartera por Edades |
 
-En total: **5 módulos y 14 lienzos** publicados.
+En total: **8 módulos y 19 lienzos** publicados.
 
 ### En roadmap (aún no publicados en el sitio)
 
-- Hospitalización (Estancia, Egresos)
-- Contratos IPS (Contratos IPS, PBS)
+- Anticipos
 - Cartera a Fecha de Corte
-- Cartera por Edades
 - Producción por Áreas de Servicio
 
 ## Privacidad de las capturas
