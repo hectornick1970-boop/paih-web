@@ -8,6 +8,7 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 
 ## Contenido del sitio
 
+- **Historias por módulo**: barra de círculos sobre el menú que reproduce las capturas de cada módulo como historias.
 - **Menú interactivo de lienzos** (`#productos`): cada módulo activo se despliega en una tarjeta con sus lienzos. Al hacer clic en un lienzo se abre un modal con una captura del tablero real y una explicación de qué significan sus cifras.
 - **Roadmap** (`#proximamente`): módulos en construcción, listados con su estado.
 - **Sección de clientes** (`#clientes`) y **formulario de contacto** (`#contacto`), con envío funcional vía FormSubmit.
@@ -24,14 +25,13 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 | Glosas y Trámites | Semáforo de Glosas, Glosas, Trámites, Gestión Trámites |
 | Hospitalización | Estancia, Egresos |
 | Contratos IPS | Contratos IPS, PBS |
-| Cartera | Cartera por Edades |
+| Cartera a Fecha de Corte | Cartera Bruta y Neta, Cartera por Edades |
 
-En total: **8 módulos y 19 lienzos** publicados.
+En total: **8 módulos y 20 lienzos** publicados.
 
 ### En roadmap (aún no publicados en el sitio)
 
-- Anticipos
-- Cartera a Fecha de Corte
+- Cartera — Anticipos
 - Producción por Áreas de Servicio
 
 ## Privacidad de las capturas
