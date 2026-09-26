@@ -500,7 +500,7 @@
   .story-progress-seg.done .fill{width:100%;}
   .story-top{
     position:absolute;
-    top:22px; left:14px; right:56px;
+    top:22px; left:14px; right:98px;
     display:flex; align-items:center; gap:10px;
     z-index:5; color:#fff;
   }
@@ -519,6 +519,18 @@
     cursor:pointer;
   }
   .story-close:hover{background:rgba(255,255,255,.26);}
+  .story-pause{
+    position:absolute; top:16px; right:56px; z-index:6;
+    width:34px; height:34px; border-radius:50%;
+    border:none; background:rgba(255,255,255,.14); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .story-pause:hover{background:rgba(255,255,255,.26);}
+  .story-pause svg{width:14px;height:14px;fill:currentColor;}
+  .story-pause .ico-play{display:none;}
+  .story-viewer.paused .story-pause .ico-pause{display:none;}
+  .story-viewer.paused .story-pause .ico-play{display:block;}
   .story-close svg{width:16px;height:16px;}
   .story-image-wrap{
     display:flex; align-items:center; justify-content:center;
@@ -1002,6 +1014,10 @@
       <span class="story-badge" id="storyBadge"></span>
       <span class="story-title" id="storyTitle"></span>
     </div>
+    <button class="story-pause" id="storyPauseBtn" onclick="toggleStoryPause()" aria-label="Pausar historia" title="Pausar / continuar (barra espaciadora)">
+      <svg class="ico-pause" viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
+      <svg class="ico-play" viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5z"/></svg>
+    </button>
     <button class="story-close" onclick="closeStory()" aria-label="Cerrar">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
     </button>
@@ -1258,7 +1274,7 @@ const MODULES = [
     ] }
   ];
 
-  let storyState = { moduleIndex: 0, slideIndex: 0, timer: null, duration: 4500 };
+  let storyState = { moduleIndex: 0, slideIndex: 0, timer: null, duration: 4500, paused: false, remaining: 4500, startedAt: 0 };
 
   function renderStoriesBar() {
     const bar = document.getElementById('storiesBar');
@@ -1306,15 +1322,50 @@ const MODULES = [
       fill.style.width = '0%';
       if (i < storyState.slideIndex) { seg.classList.add('done'); fill.style.width = '100%'; }
     });
-    if (segs[storyState.slideIndex]) {
-      void segs[storyState.slideIndex].offsetWidth;
-      const curFill = segs[storyState.slideIndex].querySelector('.fill');
-      curFill.style.transition = `width ${storyState.duration}ms linear`;
-      requestAnimationFrame(() => { curFill.style.width = '100%'; });
-    }
+    storyState.paused = false;
+    document.getElementById('storyViewer').classList.remove('paused');
+    storyState.remaining = storyState.duration;
+    runStoryTimer();
+  }
 
+  function currentFill() {
+    const seg = document.querySelectorAll('#storyProgress .story-progress-seg')[storyState.slideIndex];
+    return seg ? seg.querySelector('.fill') : null;
+  }
+
+  function runStoryTimer() {
+    const fill = currentFill();
+    if (fill) {
+      void fill.offsetWidth;
+      fill.style.transition = `width ${storyState.remaining}ms linear`;
+      requestAnimationFrame(() => { fill.style.width = '100%'; });
+    }
     clearTimeout(storyState.timer);
-    storyState.timer = setTimeout(storyNext, storyState.duration);
+    storyState.startedAt = Date.now();
+    storyState.timer = setTimeout(storyNext, storyState.remaining);
+  }
+
+  function toggleStoryPause() {
+    const viewer = document.getElementById('storyViewer');
+    const btn = document.getElementById('storyPauseBtn');
+    if (!storyState.paused) {
+      storyState.paused = true;
+      clearTimeout(storyState.timer);
+      storyState.remaining = Math.max(200, storyState.remaining - (Date.now() - storyState.startedAt));
+      const fill = currentFill();
+      if (fill) {
+        const w = getComputedStyle(fill).width;
+        fill.style.transition = 'none';
+        fill.style.width = w;
+      }
+      viewer.classList.add('paused');
+      btn.setAttribute('aria-label', 'Continuar historia');
+    } else {
+      storyState.paused = false;
+      viewer.classList.remove('paused');
+      btn.setAttribute('aria-label', 'Pausar historia');
+      runStoryTimer();
+    }
   }
 
   function storyNext() {
@@ -1352,6 +1403,7 @@ const MODULES = [
     if (e.key === 'Escape') closeStory();
     if (e.key === 'ArrowRight') storyNext();
     if (e.key === 'ArrowLeft') storyPrev();
+    if (e.key === ' ') { e.preventDefault(); toggleStoryPause(); }
   });
 
   renderStoriesBar();
