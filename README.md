@@ -13,7 +13,7 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 - **Menú interactivo de lienzos** (`#productos`): cada módulo activo se despliega en una tarjeta con sus lienzos. Al hacer clic en un lienzo se abre un modal con una captura del tablero real, una pestaña **Con tooltip** (cuando el lienzo los tiene) y una explicación de qué significan sus cifras.
 - **Roadmap** (`#proximamente`): módulos en construcción, listados con su estado.
 - **Sección de clientes** (`#clientes`) y **formulario de contacto** (`#contacto`), con envío funcional vía FormSubmit.
-- **Botón flotante de WhatsApp**, **contador de visitas** (vía CountAPI) y animaciones con soporte de `prefers-reduced-motion`.
+- **Botón flotante de WhatsApp**, **contador de visitas** (vía Abacus) y animaciones con soporte de `prefers-reduced-motion`.
 
 ## Módulos activos y lienzos
 
@@ -49,7 +49,7 @@ Todas las capturas de tableros que aparecen en el sitio están anonimizadas ante
 - HTML + CSS + JavaScript vanilla en un solo `index.html`, sin build step
 - Tipografía: IBM Plex Sans / IBM Plex Mono
 - Formulario de contacto: [FormSubmit](https://formsubmit.co)
-- Contador de visitas: [CountAPI](https://countapi.xyz)
+- Contador de visitas: [Abacus](https://abacus.jasoncameron.dev)
 - Hosting: GitHub Pages (dominio `paih.net` vía `CNAME`)
 - Fuente de los datos mostrados: Power BI Service, conectado a Dinámica Gerencial Hospitalaria vía gateway on-premises
 

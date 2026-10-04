@@ -1135,12 +1135,12 @@
     navToggle.setAttribute('aria-expanded', 'false');
   }));
 
-  // Contador de visitas (CountAPI: servicio gratuito, sin necesidad de servidor propio)
+  // Contador de visitas (Abacus: servicio gratuito, sin necesidad de servidor propio)
   (function () {
     const countEl = document.getElementById('visitCount');
-    fetch('https://api.countapi.xyz/hit/paih-net-site/visitas-home')
-      .then(res => res.json())
-      .then(data => { countEl.textContent = data.value.toLocaleString('es-CO'); })
+    fetch('https://abacus.jasoncameron.dev/hit/paih.net/home')
+      .then(res => { if (!res.ok) throw new Error('contador no disponible'); return res.json(); })
+      .then(data => { countEl.textContent = Number(data.value).toLocaleString('es-CO'); })
       .catch(() => { countEl.parentElement.parentElement.style.display = 'none'; });
   })();
 
