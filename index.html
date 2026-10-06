@@ -351,9 +351,15 @@
   .lienzo-card--radicacion .lienzo-item:hover{background:rgba(46,139,69,0.07);}
   .lienzo-card--glosas .chip{background:rgba(178,58,58,0.11);color:#B23A3A;}
   .lienzo-card--glosas .lienzo-item:hover{background:rgba(178,58,58,0.07);}
-  .lienzo-card--hospitalizacion .lienzo-head{background:#6E4A8E;}
-  .lienzo-card--hospitalizacion .chip{background:rgba(110,74,142,0.11);color:#6E4A8E;}
-  .lienzo-card--hospitalizacion .lienzo-item:hover{background:rgba(110,74,142,0.07);}
+  .lienzo-card--ingresos .lienzo-head{background:#6E4A8E;}
+  .lienzo-card--ingresos .chip{background:rgba(110,74,142,0.11);color:#6E4A8E;}
+  .lienzo-card--ingresos .lienzo-item:hover{background:rgba(110,74,142,0.07);}
+  .lienzo-card--hospitalizacion .lienzo-head{background:#2D6CB5;}
+  .lienzo-card--hospitalizacion .chip{background:rgba(45,108,181,0.11);color:#2D6CB5;}
+  .lienzo-card--hospitalizacion .lienzo-item:hover{background:rgba(45,108,181,0.07);}
+  .lienzo-card--cirugias .lienzo-head{background:#C55A11;}
+  .lienzo-card--cirugias .chip{background:rgba(197,90,17,0.11);color:#B04F0E;}
+  .lienzo-card--cirugias .lienzo-item:hover{background:rgba(197,90,17,0.07);}
   .lienzo-card--contratos .lienzo-head{background:#8C5578;}
   .lienzo-card--contratos .chip{background:rgba(140,85,120,0.11);color:#8C5578;}
   .lienzo-card--contratos .lienzo-item:hover{background:rgba(140,85,120,0.07);}
@@ -580,6 +586,15 @@
   .story-circle{position:relative;}
   .story-new{position:absolute;top:-4px;right:2px;font-size:8.5px;padding:2px 6px;border:2px solid var(--paper);z-index:2;}
   @media (max-width:640px){ .lm-tabs{padding:10px 18px;} .nov-media img{height:160px;} }
+
+  /* ===== Grupos: módulos asistenciales / administrativos ===== */
+  .modgroup{margin-top:34px;}
+  .modgroup-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;margin:0 0 14px;padding-left:14px;border-left:4px solid var(--teal);}
+  .modgroup-head h3{margin:0;font-size:20px;font-weight:700;color:var(--ink);}
+  .modgroup-head p{margin:0;font-size:13.5px;color:var(--slate);}
+  #modulos-administrativos .modgroup-head{border-left-color:var(--ink);}
+  .lm-ico{display:inline-flex;}
+  .lm-tabs:not(.lm-tabs--tip) .lm-ico{display:none;}
 </style>
 </head>
 <body>
@@ -639,39 +654,50 @@
       <div class="section-head">
         <span class="eyebrow">Suite PAIH</span>
         <h2>Un lienzo para cada decisión</h2>
-        <p>Siete módulos activos y 25 lienzos de análisis, cada uno enfocado en un proceso crítico de la operación hospitalaria — ahora con menú unificado y tooltips explicativos en los gráficos.</p>
+        <p>Nueve módulos activos y 28 lienzos de análisis, agrupados en módulos asistenciales y administrativos, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos.</p>
       </div>
 
       <div class="stories-bar" id="storiesBar"></div>
 
       <div class="novedades" id="novedades">
         <article class="nov-tile">
-          <button class="nov-media" onclick="openLienzo('home')" aria-label="Ver el nuevo menú de navegación">
-            <img src="img/lienzos/home.jpg" alt="Nuevo menú de navegación de PAIH" loading="lazy">
+          <button class="nov-media" onclick="openLienzo('menu')" aria-label="Ver el nuevo menú de navegación">
+            <img src="img/lienzos/menu_asistenciales.jpg" alt="Nuevo menú de PAIH: módulos asistenciales" loading="lazy">
           </button>
           <div class="nov-body">
             <span class="nov-tag">Nuevo</span>
-            <h3>Menú de navegación unificado</h3>
-            <p>7 módulos y 25 lienzos agrupados por proceso en una sola pantalla de inicio, con navegación directa entre lienzos.</p>
-            <button class="nov-btn" onclick="openLienzo('home')">Ver el menú →</button>
+            <h3>Menú dividido: asistencial y administrativo</h3>
+            <p>9 módulos y 28 lienzos en dos menús — 12 asistenciales y 16 administrativos — con un botón para pasar de uno a otro.</p>
+            <button class="nov-btn" onclick="openLienzo('menu')">Ver los menús →</button>
           </div>
         </article>
         <article class="nov-tile">
-          <button class="nov-media" onclick="openLienzo('citas_medicas','tip')" aria-label="Ver un ejemplo de tooltip explicativo">
-            <img src="img/lienzos/citas_medicas_tooltip.jpg" alt="Ejemplo de tooltip explicativo en un gráfico de PAIH" loading="lazy">
+          <button class="nov-media" onclick="openLienzo('programacion_cirugias')" aria-label="Ver el nuevo módulo de cirugías">
+            <img src="img/lienzos/programacion_cirugias.jpg" alt="Lienzo Programación de Cirugías" loading="lazy">
+          </button>
+          <div class="nov-body">
+            <span class="nov-tag">Nuevo módulo</span>
+            <h3>Cirugías: programación, oportunidad y médicos</h3>
+            <p>Tres lienzos: cuántas cirugías se programan y se cumplen, cuánto tarda cada una en llegar a quirófano y cómo rinde cada médico.</p>
+            <button class="nov-btn" onclick="openLienzo('programacion_cirugias')">Ver Programación de Cirugías →</button>
+          </div>
+        </article>
+        <article class="nov-tile">
+          <button class="nov-media" onclick="openLienzo('programacion_cirugias','alt')" aria-label="Ver un ejemplo de tooltip explicativo">
+            <img src="img/lienzos/programacion_cirugias_tooltip.jpg" alt="Ejemplo de tooltip explicativo en un gráfico de PAIH" loading="lazy">
           </button>
           <div class="nov-body">
             <span class="nov-tag">Nuevo</span>
             <h3>Tooltips explicativos (i) en los gráficos</h3>
-            <p>20 lienzos incluyen tooltips: cada gráfico indica su Objetivo y cómo hacer su Lectura, para que cualquier persona entienda las cifras sin ayuda.</p>
-            <button class="nov-btn" onclick="openLienzo('citas_medicas','tip')">Ver un ejemplo →</button>
+            <p>23 lienzos incluyen tooltips: cada gráfico indica su Objetivo y cómo hacer su Lectura, para que cualquier persona entienda las cifras sin ayuda.</p>
+            <button class="nov-btn" onclick="openLienzo('programacion_cirugias','alt')">Ver un ejemplo →</button>
           </div>
         </article>
         <article class="nov-tile">
           <div class="nov-body nov-body--solo">
             <span class="nov-tag">Nuevo</span>
-            <h3>5 lienzos nuevos</h3>
-            <p>Vistas ejecutivas para dirección, con lecturas automáticas y tooltips en cada gráfico:</p>
+            <h3>5 vistas ejecutivas</h3>
+            <p>Vistas para dirección, con lecturas automáticas y tooltips en cada gráfico:</p>
             <div class="nov-chips">
               <button class="nov-chip" onclick="openLienzo('ingresos_ejecutivo')">Ingresos Ejecutivo</button>
               <button class="nov-chip" onclick="openLienzo('facturacion_ejecutiva')">Facturación Ejecutiva</button>
@@ -683,7 +709,12 @@
         </article>
       </div>
 
-      <div class="lienzo-grid">
+      <div class="modgroup" id="modulos-asistenciales">
+        <div class="modgroup-head">
+          <h3>Módulos Asistenciales</h3>
+          <p>Citas, Cirugías, Ingresos y Hospitalización · 12 lienzos</p>
+        </div>
+        <div class="lienzo-grid">
 
         <!-- CITAS -->
         <article class="lienzo-card lienzo-card--citas">
@@ -732,13 +763,46 @@
           </nav>
         </article>
 
-        <!-- INGRESOS · HOSPITALIZACIÓN -->
-        <article class="lienzo-card lienzo-card--hospitalizacion">
+        <!-- CIRUGÍAS -->
+        <article class="lienzo-card lienzo-card--cirugias">
           <div class="lienzo-head">
             <span class="lienzo-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/><path d="M3 12h18"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l9-9"/><path d="M12 12l5.5-8.5L21 7l-5 6z"/></svg>
             </span>
-            <h3>Ingresos · Hospitalización</h3>
+            <h3>Cirugías</h3>
+          </div>
+          <nav class="lienzo-list">
+            <button class="lienzo-item" onclick="openLienzo('programacion_cirugias')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l9-9"/><path d="M12 12l5.5-8.5L21 7l-5 6z"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Programación de Cirugías <span class="new-tag">Nuevo</span></span>
+                <span class="d">Cirugías programadas, cumplidas, canceladas e incumplidas: tendencia, motivos, turnos y procedimientos más programados.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('analisis_cirugias')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/><polyline points="9 15 11 17 15 13"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Análisis de Cirugías <span class="new-tag">Nuevo</span></span>
+                <span class="d">Oportunidad quirúrgica: días entre la solicitud, la programación y la cirugía, por especialidad y por área que ejecuta.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('analisis_medicos')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a4 4 0 0 0 8 0v-2"/><circle cx="18" cy="11" r="2"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Análisis por Médico <span class="new-tag">Nuevo</span></span>
+                <span class="d">Producción de cada médico principal: cirugías, horas de quirófano, cumplimiento, cancelaciones y duración promedio.</span>
+              </span>
+            </button>
+          </nav>
+        </article>
+
+        <!-- INGRESOS -->
+        <article class="lienzo-card lienzo-card--ingresos">
+          <div class="lienzo-head">
+            <span class="lienzo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="15 6 21 6 21 12"/></svg>
+            </span>
+            <h3>Ingresos</h3>
           </div>
           <nav class="lienzo-list">
             <button class="lienzo-item" onclick="openLienzo('analisis_ingresos')">
@@ -755,6 +819,18 @@
                 <span class="d">Vista ejecutiva de ingresos efectivos: promedio diario, mezcla ambulatorio/hospitalizado y mapa de calor por día y hora.</span>
               </span>
             </button>
+          </nav>
+        </article>
+
+        <!-- HOSPITALIZACIÓN -->
+        <article class="lienzo-card lienzo-card--hospitalizacion">
+          <div class="lienzo-head">
+            <span class="lienzo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7"/><path d="M3 14h18v4"/><path d="M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.5"/></svg>
+            </span>
+            <h3>Hospitalización</h3>
+          </div>
+          <nav class="lienzo-list">
             <button class="lienzo-item" onclick="openLienzo('estancia')">
               <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7"/><path d="M3 14h18v4"/><path d="M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.5"/></svg></span>
               <span class="lienzo-item-text">
@@ -772,34 +848,51 @@
           </nav>
         </article>
 
-        <!-- FACTURACIÓN -->
-        <article class="lienzo-card lienzo-card--facturacion">
+        </div>
+      </div>
+
+      <div class="modgroup" id="modulos-administrativos">
+        <div class="modgroup-head">
+          <h3>Módulos Administrativos</h3>
+          <p>Cartera, Radicación, Contratos, Glosas y Facturación · 16 lienzos</p>
+        </div>
+        <div class="lienzo-grid">
+
+        <!-- CARTERA -->
+        <article class="lienzo-card lienzo-card--cartera">
           <div class="lienzo-head">
             <span class="lienzo-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v16l-2-1.2-2 1.2-2-1.2-2 1.2-2-1.2-2 1.2V3z"/><line x1="9" y1="7.5" x2="15" y2="7.5"/><line x1="9" y1="11.5" x2="15" y2="11.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
             </span>
-            <h3>Facturación</h3>
+            <h3>Cartera</h3>
           </div>
           <nav class="lienzo-list">
-            <button class="lienzo-item" onclick="openLienzo('facturacion')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v17l-2-1.2-2 1.2-2-1.2-2 1.2-2-1.2L6 20z"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Facturación</span>
-                <span class="d">Valor facturado por régimen, por EPS y por tipo de factura: ticket promedio y facturas por día.</span>
-              </span>
-            </button>
-            <button class="lienzo-item" onclick="openLienzo('snapshot_facturacion')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Snapshot Facturación</span>
-                <span class="d">Facturación limpia, refacturación y facturas anuladas, con detalle factura por factura.</span>
-              </span>
-            </button>
-            <button class="lienzo-item" onclick="openLienzo('facturacion_ejecutiva')">
+            <button class="lienzo-item" onclick="openLienzo('cartera_edades')">
               <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="20" x2="7" y2="10"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="13"/></svg></span>
               <span class="lienzo-item-text">
-                <span class="t">Facturación Ejecutiva <span class="new-tag">Nuevo</span></span>
-                <span class="d">Vista ejecutiva: facturación neta, anulación por sede, refacturación y rezago, con lecturas automáticas.</span>
+                <span class="t">Cartera por Edades</span>
+                <span class="d">Cartera por rangos de antigüedad (sin vencer a +1825 días), factura por factura.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('cartera_ejecutiva')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H5a2 2 0 0 1 0-4h13v4"/><path d="M3 5v14a2 2 0 0 0 2 2h15V7"/><circle cx="16.5" cy="14" r="1.2"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Cartera Ejecutiva <span class="new-tag">Nuevo</span></span>
+                <span class="d">Vista ejecutiva de cartera: edad, variación vs el corte anterior, Top 10 EPS y estado de la factura.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('anticipos')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Anticipos</span>
+                <span class="d">Anticipos disponibles por tercero con consecutivo, fecha y saldo, frente a la cartera neta.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('anticipos_ejecutivo')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Anticipos Ejecutivo <span class="new-tag">Nuevo</span></span>
+                <span class="d">Vista ejecutiva de anticipos por aplicar: antigüedad, concentración por tercero y cobertura sobre la cartera.</span>
               </span>
             </button>
           </nav>
@@ -833,6 +926,32 @@
               <span class="lienzo-item-text">
                 <span class="t">Oportunidad Radicación <span class="new-tag">Nuevo</span></span>
                 <span class="d">Ciclo completo facturar → confirmar → radicar, por tramo de días y por EPS.</span>
+              </span>
+            </button>
+          </nav>
+        </article>
+
+        <!-- CONTRATOS -->
+        <article class="lienzo-card lienzo-card--contratos">
+          <div class="lienzo-head">
+            <span class="lienzo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+            </span>
+            <h3>Contratos</h3>
+          </div>
+          <nav class="lienzo-list">
+            <button class="lienzo-item" onclick="openLienzo('contratos_ips')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Contratos IPS</span>
+                <span class="d">Contratos por EPS, cobertura de valor registrado en SIIFA y vigencia.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('pbs')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L20 5 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V5 Z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">PBS</span>
+                <span class="d">Planes de beneficios activos, bloqueados y por vencer a 90 días, por entidad y cobertura.</span>
               </span>
             </button>
           </nav>
@@ -878,73 +997,42 @@
           </nav>
         </article>
 
-        <!-- CARTERA -->
-        <article class="lienzo-card lienzo-card--cartera">
+        <!-- FACTURACIÓN -->
+        <article class="lienzo-card lienzo-card--facturacion">
           <div class="lienzo-head">
             <span class="lienzo-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v16l-2-1.2-2 1.2-2-1.2-2 1.2-2-1.2-2 1.2V3z"/><line x1="9" y1="7.5" x2="15" y2="7.5"/><line x1="9" y1="11.5" x2="15" y2="11.5"/></svg>
             </span>
-            <h3>Cartera</h3>
+            <h3>Facturación</h3>
           </div>
           <nav class="lienzo-list">
-            <button class="lienzo-item" onclick="openLienzo('cartera_edades')">
+            <button class="lienzo-item" onclick="openLienzo('facturacion')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v17l-2-1.2-2 1.2-2-1.2-2 1.2-2-1.2L6 20z"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Facturación</span>
+                <span class="d">Valor facturado por régimen, por EPS y por tipo de factura: ticket promedio y facturas por día.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('snapshot_facturacion')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Snapshot Facturación</span>
+                <span class="d">Facturación limpia, refacturación y facturas anuladas, con detalle factura por factura.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('facturacion_ejecutiva')">
               <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="20" x2="7" y2="10"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="13"/></svg></span>
               <span class="lienzo-item-text">
-                <span class="t">Cartera por Edades</span>
-                <span class="d">Cartera por rangos de antigüedad (sin vencer a +1825 días), factura por factura.</span>
-              </span>
-            </button>
-            <button class="lienzo-item" onclick="openLienzo('cartera_ejecutiva')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H5a2 2 0 0 1 0-4h13v4"/><path d="M3 5v14a2 2 0 0 0 2 2h15V7"/><circle cx="16.5" cy="14" r="1.2"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Cartera Ejecutiva <span class="new-tag">Nuevo</span></span>
-                <span class="d">Vista ejecutiva de cartera: edad, variación vs el corte anterior, Top 10 EPS y estado de la factura.</span>
-              </span>
-            </button>
-            <button class="lienzo-item" onclick="openLienzo('anticipos')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Anticipos</span>
-                <span class="d">Anticipos disponibles por tercero con consecutivo, fecha y saldo, frente a la cartera neta.</span>
-              </span>
-            </button>
-            <button class="lienzo-item" onclick="openLienzo('anticipos_ejecutivo')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Anticipos Ejecutivo <span class="new-tag">Nuevo</span></span>
-                <span class="d">Vista ejecutiva de anticipos por aplicar: antigüedad, concentración por tercero y cobertura sobre la cartera.</span>
+                <span class="t">Facturación Ejecutiva <span class="new-tag">Nuevo</span></span>
+                <span class="d">Vista ejecutiva: facturación neta, anulación por sede, refacturación y rezago, con lecturas automáticas.</span>
               </span>
             </button>
           </nav>
         </article>
 
-        <!-- CONTRATOS -->
-        <article class="lienzo-card lienzo-card--contratos">
-          <div class="lienzo-head">
-            <span class="lienzo-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
-            </span>
-            <h3>Contratos</h3>
-          </div>
-          <nav class="lienzo-list">
-            <button class="lienzo-item" onclick="openLienzo('contratos_ips')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Contratos IPS</span>
-                <span class="d">Contratos por EPS, cobertura de valor registrado en SIIFA y vigencia.</span>
-              </span>
-            </button>
-            <button class="lienzo-item" onclick="openLienzo('pbs')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L20 5 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V5 Z"/><path d="M9 12l2 2 4-4"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">PBS</span>
-                <span class="d">Planes de beneficios activos, bloqueados y por vencer a 90 días, por entidad y cobertura.</span>
-              </span>
-            </button>
-          </nav>
-        </article>
-
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -1088,8 +1176,8 @@
       </button>
     </div>
     <div class="lm-tabs" id="lienzoTabs" role="group" aria-label="Vista del lienzo" hidden>
-      <button type="button" data-view="main" class="on" aria-pressed="true" onclick="setLienzoView('main')">Lienzo</button>
-      <button type="button" data-view="tip" aria-pressed="false" onclick="setLienzoView('tip')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r="0.7"/></svg> Con tooltip</button>
+      <button type="button" data-view="main" class="on" aria-pressed="true" onclick="setLienzoView('main')"><span id="lmMainLbl">Lienzo</span></button>
+      <button type="button" data-view="alt" aria-pressed="false" onclick="setLienzoView('alt')"><span class="lm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r="0.7"/></svg></span><span id="lmAltLbl">Con tooltip</span></button>
     </div>
     <img id="lienzoModalImg" src="" alt="">
     <div class="lienzo-modal-body">
@@ -1181,32 +1269,35 @@
 
   // ===== Modal de lienzos: datos + interacción =====
   const LIENZOS = {
-    citas_medicas: {"modulo": "Citas", "titulo": "Citas Médicas", "img": "img/lienzos/citas_medicas.jpg", "tip": "img/lienzos/citas_medicas_tooltip.jpg", "sales": "58.534 citas en el período, con 45.170 cumplidas (77,2%) y 9.851 incumplidas (16,8%): el tablero responde en una sola pantalla cuántas citas hay cada mes y qué porcentaje se cumple. Cada gráfico trae su tooltip (i): el de Tendencia mensual, por ejemplo, explica que la línea es el % de cumplimiento y que una caída con volumen estable indica problemas de asistencia."},
+    citas_medicas: {"modulo": "Citas", "titulo": "Citas Médicas", "img": "img/lienzos/citas_medicas.jpg", "sales": "58.534 citas en el período, con 45.170 cumplidas (77,2%) y 9.851 incumplidas (16,8%): el tablero responde en una sola pantalla cuántas citas hay cada mes y qué porcentaje se cumple. Cada gráfico trae su tooltip (i): el de Tendencia mensual, por ejemplo, explica que la línea es el % de cumplimiento y que una caída con volumen estable indica problemas de asistencia.", "alt": {"img": "img/lienzos/citas_medicas_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
     comparativo_citas: {"modulo": "Citas", "titulo": "Comparativo Citas", "img": "img/lienzos/comparativo_citas.jpg", "sales": "El volumen de citas cayó 22,4% frente al mismo período del año anterior (6.255 contra 8.056), pero la calidad de gestión mejoró: el cumplimiento subió 8,9 puntos porcentuales y el incumplimiento bajó 10,3. Un cuadro de interpretación redacta esa lectura automáticamente y la dispersión por médico (nombres protegidos) muestra quién sostiene el volumen con buen desempeño."},
-    oportunidad_citas: {"modulo": "Citas", "titulo": "Oportunidad Citas", "img": "img/lienzos/oportunidad_citas.jpg", "tip": "img/lienzos/oportunidad_citas_tooltip.jpg", "sales": "Promedio de 2,8 días entre la solicitud y la cita (tope legal de la Res. 1552: 3 días): Medicina General cumple en 88,5% y Odontología General en 94,2%, sobre bases de 16.663 y 6.381 citas. El tooltip de Oportunidad por especialidad enseña a leerlo: cada barra es el promedio de días hábiles y el semáforo es verde hasta 4 días, amarillo hasta 7 y rojo por encima."},
-    oportunidad_deseada: {"modulo": "Citas", "titulo": "Oportunidad Deseada", "img": "img/lienzos/oportunidad_deseada.jpg", "tip": "img/lienzos/oportunidad_deseada_tooltip.jpg", "sales": "En promedio la cita se asigna 2,39 días después de la fecha que el paciente hubiera preferido, con un rango de 0 a 283 días; 35 registros con fechas inconsistentes se excluyen del cálculo. Su tooltip aclara que las barras largas indican brecha entre la demanda y la agenda."},
-    capacidad_instalada: {"modulo": "Citas", "titulo": "Capacidad Instalada", "img": "img/lienzos/capacidad_instalada.jpg", "tip": "img/lienzos/capacidad_instalada_tooltip.jpg", "sales": "589 turnos y 263.300 minutos de turno, de los cuales solo 64.948 se utilizaron (24,67%): 198.352 minutos perdidos que la agenda no aprovechó. Ranking por especialidad, por médico (nombres protegidos) y tendencia. Su tooltip indica que el ranking por médico sirve para detectar agendas subutilizadas, y al pasar el cursor por cada barra aparece su interpretación."},
-    analisis_ingresos: {"modulo": "Ingresos · Hospitalización", "titulo": "Análisis Ingresos", "img": "img/lienzos/analisis_ingresos.jpg", "tip": "img/lienzos/analisis_ingresos_tooltip.jpg", "sales": "92.632 ingresos en el período: 89.463 facturados, 1.651 anulados, 358 cerrados y 959 registrados, con detalle por EPS, por tipo (consulta externa 54.911, urgencias 31.159) y por centro de atención. El tooltip de Ingresos por período aclara que se cuenta cada ingreso registrado, anulados incluidos, y que los picos y caídas muestran estacionalidad."},
-    ingresos_ejecutivo: {"modulo": "Ingresos · Hospitalización", "titulo": "Ingresos Ejecutivo", "img": "img/lienzos/ingresos_ejecutivo.jpg", "tip": "img/lienzos/ingresos_ejecutivo_tooltip.jpg", "isNew": true, "sales": "Vista de dirección: 91 mil ingresos efectivos, promedio diario de 327,8, 11,2% hospitalizados, 33,6% por urgencias, 1,8% de anulación y 98,5% facturados, con -8,3% frente al mes anterior. Suma la mezcla ambulatorio vs hospitalizado, el comparativo por sede y el mapa de calor de cuándo ingresan los pacientes. Su tooltip explica que las columnas son los ingresos efectivos del mes (sin anulados) y la línea el promedio diario, para comparar meses con distinta cantidad de días."},
-    estancia: {"modulo": "Ingresos · Hospitalización", "titulo": "Estancia", "img": "img/lienzos/estancia.jpg", "sales": "Ocupación al corte de 41,6%: 207 camas ocupadas de 498, 4 en mantenimiento y 215 disponibles. Una narrativa automática traduce la cifra a un semáforo (\"ocupación normal\") y la tabla desglosa la ocupación por sede, para saber dónde hay presión y dónde hay capacidad."},
-    egresos: {"modulo": "Ingresos · Hospitalización", "titulo": "Egresos", "img": "img/lienzos/egresos.jpg", "tip": "img/lienzos/egresos_tooltip.jpg", "sales": "133.615 egresos con un promedio de estancia de 5,49 días, 3.161 partos y 1,36% de mortalidad (el 39,55% de ella ocurrió antes de 48 horas). Egresos con y sin cama por sede y por área de servicio. Su tooltip aclara que el PDE es el promedio de días de estancia de los egresos de hospitalización y que un PDE alto indica estancias largas."},
-    facturacion: {"modulo": "Facturación", "titulo": "Facturación", "img": "img/lienzos/facturacion.jpg", "tip": "img/lienzos/facturacion_tooltip.jpg", "sales": "11,63 mil millones facturados en 6.825 facturas: ticket promedio de 1,70 millones y 252,8 facturas por día, con 97,71% facturado por evento. Por régimen (90,33% subsidiado), por EPS y por tipo de factura. El tooltip de Valor factura por régimen explica que cada porción es la suma del valor de las facturas del régimen."},
-    snapshot_facturacion: {"modulo": "Facturación", "titulo": "Snapshot Facturación", "img": "img/lienzos/snapshot_facturacion.jpg", "tip": "img/lienzos/snapshot_facturacion_tooltip.jpg", "sales": "Facturado bruto de 11.619 millones: 11.005 millones de facturación limpia (94,71%), 372 millones de refacturación y 241 millones de facturas anuladas. Compara lo facturado a la primera con lo refacturado y baja hasta cada factura. Su tooltip aclara que una refacturación alta frente a la limpia indica problemas de calidad en la facturación."},
-    facturacion_ejecutiva: {"modulo": "Facturación", "titulo": "Facturación Ejecutiva", "img": "img/lienzos/facturacion_ejecutiva.jpg", "tip": "img/lienzos/facturacion_ejecutiva_tooltip.jpg", "isNew": true, "sales": "Facturación neta de 11,4 mil millones, 114,8% por encima del año anterior, con ticket promedio neto de 2 millones, 2,1% anulado y refacturación del 3,2% del facturado bruto, emitida en promedio 5 meses después de la factura original. Cuatro lecturas automáticas, tasa de anulación por sede, Top 10 EPS y valor refacturado según el rezago. Su tooltip advierte que una franja roja grande en un mes indica un problema de calidad en el proceso de facturación de ese mes."},
-    envio: {"modulo": "Radicación", "titulo": "Envío", "img": "img/lienzos/envio.jpg", "tip": "img/lienzos/envio_tooltip.jpg", "sales": "594 facturas, 523 pendientes de radicar y 106 vencidas (20,3%), con 1.047 millones por radicar. El semáforo de radicación muestra 106 en rojo, 147 en naranja, 0 en amarillo y 270 en verde, y los insights señalan automáticamente la EPS con más facturas vencidas y la factura más antigua sin radicar. Su tooltip indica que las barras largas son las EPS a gestionar primero."},
-    radicacion: {"modulo": "Radicación", "titulo": "Radicación", "img": "img/lienzos/radicacion.jpg", "tip": "img/lienzos/radicacion_tooltip.jpg", "sales": "7.495 facturas radicadas por 12.253 millones, 111,4% por encima del año anterior (5.795 millones). Valor radicado por EPS, tendencia por período y detalle de cada factura radicada, con insights automáticos. Su tooltip aclara que las barras largas son las EPS con mayor valor radicado."},
-    oportunidad_radicacion: {"modulo": "Radicación", "titulo": "Oportunidad Radicación", "img": "img/lienzos/oportunidad_radicacion.jpg", "tip": "img/lienzos/oportunidad_radicacion_tooltip.jpg", "isNew": true, "sales": "Ciclo total de 34,8 días: 31,2 para pasar de facturar a confirmar y 3,6 de confirmar a radicar; el 76,0% se radica a la EPS en 5 días o menos, el 62,4% se confirma en 20 días o menos y 71 facturas siguen registradas sin confirmar. Su tooltip aclara que una línea de ciclo al alza significa un proceso más lento, y que los meses recientes pueden verse bajos porque aún hay facturas por radicar."},
-    semaforo_glosas: {"modulo": "Glosas", "titulo": "Semáforo Glosas", "img": "img/lienzos/semaforo_glosas.jpg", "tip": "img/lienzos/semaforo_glosas_tooltip.jpg", "sales": "1.483 glosas pendientes por 2.034 millones, todas en rojo (más de 30 días sin gestión), con detalle por EPS, por valor y por factura, y una narrativa que prioriza la atención. Su tooltip de Glosas por mes explica que un área creciente indica que se glosa más cada mes."},
-    glosas: {"modulo": "Glosas", "titulo": "Glosas", "img": "img/lienzos/glosas.jpg", "tip": "img/lienzos/glosas_tooltip.jpg", "sales": "20.103 millones objetados sobre 22.298 millones de servicio (90,16%): 14.169 glosas pendientes (88%) y 1.880 con trámite (12%). Por concepto de glosa, EPS, régimen y estado. El tooltip de Valor objetado por concepto indica que las barras largas son los conceptos a atacar con prevención."},
-    tramites_cosecha: {"modulo": "Glosas", "titulo": "Trámites Cosecha", "img": "img/lienzos/tramites_cosecha.jpg", "tip": "img/lienzos/tramites_cosecha_tooltip.jpg", "sales": "10,21 mil millones objetados, 254,98 millones aceptados y 9,95 mil millones no aceptados, con 91,3% sin gestionar y 69,32 días promedio de respuesta; una narrativa automática señala el backlog crítico. Su tooltip aclara que aceptado es la glosa que el hospital aceptó (se pierde) y tramitado no aceptado es la glosa defendida con respuesta."},
-    gestion_tramites: {"modulo": "Glosas", "titulo": "Gestión Trámites", "img": "img/lienzos/gestion_tramites.jpg", "tip": "img/lienzos/gestion_tramites_tooltip.jpg", "sales": "776 millones tramitados: 131,6 millones aceptados y 644,6 millones no aceptados (17,0% de aceptación) en 9.820 trámites, con un promedio de 228,67 días de respuesta. Su tooltip aclara que solo cuenta trámites con respuesta (excluye los que no tienen trámite) y que las barras largas son los conceptos con más valor aceptado."},
+    oportunidad_citas: {"modulo": "Citas", "titulo": "Oportunidad Citas", "img": "img/lienzos/oportunidad_citas.jpg", "sales": "Promedio de 2,8 días entre la solicitud y la cita (tope legal de la Res. 1552: 3 días): Medicina General cumple en 88,5% y Odontología General en 94,2%, sobre bases de 16.663 y 6.381 citas. El tooltip de Oportunidad por especialidad enseña a leerlo: cada barra es el promedio de días hábiles y el semáforo es verde hasta 4 días, amarillo hasta 7 y rojo por encima.", "alt": {"img": "img/lienzos/oportunidad_citas_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    oportunidad_deseada: {"modulo": "Citas", "titulo": "Oportunidad Deseada", "img": "img/lienzos/oportunidad_deseada.jpg", "sales": "En promedio la cita se asigna 2,39 días después de la fecha que el paciente hubiera preferido, con un rango de 0 a 283 días; 35 registros con fechas inconsistentes se excluyen del cálculo. Su tooltip aclara que las barras largas indican brecha entre la demanda y la agenda.", "alt": {"img": "img/lienzos/oportunidad_deseada_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    capacidad_instalada: {"modulo": "Citas", "titulo": "Capacidad Instalada", "img": "img/lienzos/capacidad_instalada.jpg", "sales": "589 turnos y 263.300 minutos de turno, de los cuales solo 64.948 se utilizaron (24,67%): 198.352 minutos perdidos que la agenda no aprovechó. Ranking por especialidad, por médico (nombres protegidos) y tendencia. Su tooltip indica que el ranking por médico sirve para detectar agendas subutilizadas, y al pasar el cursor por cada barra aparece su interpretación.", "alt": {"img": "img/lienzos/capacidad_instalada_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    programacion_cirugias: {"modulo": "Cirugías", "titulo": "Programación de Cirugías", "img": "img/lienzos/programacion_cirugias.jpg", "isNew": true, "sales": "3.875 cirugías programadas: 3.014 cumplidas (77,7%), 358 incumplidas y 104 canceladas (9 por decisión de la institución), con 1.570 de urgencia y 242 que requieren sangre. Duración promedio de 46 minutos y 19,1 días entre la solicitud y la programación. Muestra los procedimientos más programados (cesárea segmentaria, herniorrafia umbilical y apendicectomía), por EPS, por sede y por área solicitante, y el detalle de cada cirugía con el paciente protegido conforme a la Ley 1581 de 2012. Su tooltip de Tendencia mensual explica que un cumplimiento que cae con volumen estable señala problemas de quirófano, insumos o pacientes.", "alt": {"img": "img/lienzos/programacion_cirugias_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    analisis_cirugias: {"modulo": "Cirugías", "titulo": "Análisis de Cirugías", "img": "img/lienzos/analisis_cirugias.jpg", "isNew": true, "sales": "Oportunidad quirúrgica: 19,1 días en promedio entre la solicitud y la programación y 21,1 hasta la cirugía, con 75,0% programado en 15 días o menos. De 3.875 cirugías programadas, 947 tienen solicitud médica (24,4%) y 242 no tienen ingreso. Cirugía general (1.500), ortopedia y traumatología (1.063) y ginecología y obstetricia (933) concentran la demanda, y urología es la que más tarda en programar (55,3 días). Su tooltip aclara que el Top 10 por especialidad sirve para ver cuáles concentran la demanda quirúrgica.", "alt": {"img": "img/lienzos/analisis_cirugias_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    analisis_medicos: {"modulo": "Cirugías", "titulo": "Análisis por Médico", "img": "img/lienzos/analisis_medicos.jpg", "isNew": true, "sales": "En el período filtrado (septiembre de 2026): 508 cirugías programadas, 428 cumplidas, 9 canceladas, 16,9 días en promedio entre la solicitud y la programación y 43 minutos de duración promedio. El ranking por médico principal (cirugías, horas de quirófano, % de cumplimiento, canceladas, sin ingreso y duración) muestra quién sostiene el volumen y dónde hay cuellos de botella; los nombres de los médicos están protegidos. Su tooltip aclara que el médico principal es el registrado en la programación.", "alt": {"img": "img/lienzos/analisis_medicos_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    analisis_ingresos: {"modulo": "Ingresos", "titulo": "Análisis Ingresos", "img": "img/lienzos/analisis_ingresos.jpg", "sales": "92.632 ingresos en el período: 89.463 facturados, 1.651 anulados, 358 cerrados y 959 registrados, con detalle por EPS, por tipo (consulta externa 54.911, urgencias 31.159) y por centro de atención. El tooltip de Ingresos por período aclara que se cuenta cada ingreso registrado, anulados incluidos, y que los picos y caídas muestran estacionalidad.", "alt": {"img": "img/lienzos/analisis_ingresos_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    ingresos_ejecutivo: {"modulo": "Ingresos", "titulo": "Ingresos Ejecutivo", "img": "img/lienzos/ingresos_ejecutivo.jpg", "isNew": true, "sales": "Vista de dirección: 91 mil ingresos efectivos, promedio diario de 327,8, 11,2% hospitalizados, 33,6% por urgencias, 1,8% de anulación y 98,5% facturados, con -8,3% frente al mes anterior. Suma la mezcla ambulatorio vs hospitalizado, el comparativo por sede y el mapa de calor de cuándo ingresan los pacientes. Su tooltip explica que las columnas son los ingresos efectivos del mes (sin anulados) y la línea el promedio diario, para comparar meses con distinta cantidad de días.", "alt": {"img": "img/lienzos/ingresos_ejecutivo_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    estancia: {"modulo": "Hospitalización", "titulo": "Estancia", "img": "img/lienzos/estancia.jpg", "sales": "Ocupación al corte de 41,6%: 207 camas ocupadas de 498, 4 en mantenimiento y 215 disponibles. Una narrativa automática traduce la cifra a un semáforo (\"ocupación normal\") y la tabla desglosa la ocupación por sede, para saber dónde hay presión y dónde hay capacidad."},
+    egresos: {"modulo": "Hospitalización", "titulo": "Egresos", "img": "img/lienzos/egresos.jpg", "sales": "133.615 egresos con un promedio de estancia de 5,49 días, 3.161 partos y 1,36% de mortalidad (el 39,55% de ella ocurrió antes de 48 horas). Egresos con y sin cama por sede y por área de servicio. Su tooltip aclara que el PDE es el promedio de días de estancia de los egresos de hospitalización y que un PDE alto indica estancias largas.", "alt": {"img": "img/lienzos/egresos_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
     cartera_edades: {"modulo": "Cartera", "titulo": "Cartera por Edades", "img": "img/lienzos/cartera_edades.jpg", "sales": "Cartera bruta de 156,21 mil millones, con 61,11 mil millones en anticipos disponibles y 95,09 mil millones de cartera neta; 90,2% está vencida (140,86 mil millones) y 20,5% en glosa. La antigüedad queda abierta por rangos, de sin vencer a más de 1.825 días, y baja hasta cada factura."},
-    cartera_ejecutiva: {"modulo": "Cartera", "titulo": "Cartera Ejecutiva", "img": "img/lienzos/cartera_ejecutiva.jpg", "tip": "img/lienzos/cartera_ejecutiva_tooltip.jpg", "isNew": true, "sales": "Cartera total de 156 mil millones (+2,2% frente al corte anterior): 90,2% vencida, 36,5% con más de 360 días, 20,5% en glosa y 15 mil millones sin radicar, con cuatro lecturas automáticas, Top 10 EPS y estado de la factura. Su tooltip explica que las columnas rojas son la prioridad de cobro y conciliación."},
+    cartera_ejecutiva: {"modulo": "Cartera", "titulo": "Cartera Ejecutiva", "img": "img/lienzos/cartera_ejecutiva.jpg", "isNew": true, "sales": "Cartera total de 156 mil millones (+2,2% frente al corte anterior): 90,2% vencida, 36,5% con más de 360 días, 20,5% en glosa y 15 mil millones sin radicar, con cuatro lecturas automáticas, Top 10 EPS y estado de la factura. Su tooltip explica que las columnas rojas son la prioridad de cobro y conciliación.", "alt": {"img": "img/lienzos/cartera_ejecutiva_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
     anticipos: {"modulo": "Cartera", "titulo": "Anticipos", "img": "img/lienzos/anticipos.jpg", "sales": "61.111 millones en anticipos disponibles frente a una cartera bruta de 156.206 millones y una cartera neta de 95.094 millones. Detalle por consecutivo, fecha y saldo; la identificación de cada titular se protege conforme a la Ley 1581 de 2012."},
-    anticipos_ejecutivo: {"modulo": "Cartera", "titulo": "Anticipos Ejecutivo", "img": "img/lienzos/anticipos_ejecutivo.jpg", "tip": "img/lienzos/anticipos_ejecutivo_tooltip.jpg", "isNew": true, "sales": "61 mil millones en anticipos por aplicar de 213 terceros (+6,3% frente al corte anterior): 38,0% del saldo supera los 365 días sin aplicarse y equivale al 39,1% de la cartera, de modo que la cartera neta estimada sería de 95 mil millones. Su tooltip advierte que si el saldo crece mes a mes entran más anticipos de los que se aplican y conviene acelerar la aplicación."},
-    contratos_ips: {"modulo": "Contratos", "titulo": "Contratos IPS", "img": "img/lienzos/contratos_ips.jpg", "tip": "img/lienzos/contratos_ips_tooltip.jpg", "sales": "310 contratos, de los cuales solo 12 tienen valor registrado en SIIFA (3,9% de cobertura), por 113,55 mil millones; el resto aparece en una tabla de contratos sin valor para su gestión. Su tooltip aclara que el valor se cuenta una vez por contrato (el máximo registrado)."},
+    anticipos_ejecutivo: {"modulo": "Cartera", "titulo": "Anticipos Ejecutivo", "img": "img/lienzos/anticipos_ejecutivo.jpg", "isNew": true, "sales": "61 mil millones en anticipos por aplicar de 213 terceros (+6,3% frente al corte anterior): 38,0% del saldo supera los 365 días sin aplicarse y equivale al 39,1% de la cartera, de modo que la cartera neta estimada sería de 95 mil millones. Su tooltip advierte que si el saldo crece mes a mes entran más anticipos de los que se aplican y conviene acelerar la aplicación.", "alt": {"img": "img/lienzos/anticipos_ejecutivo_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    envio: {"modulo": "Radicación", "titulo": "Envío", "img": "img/lienzos/envio.jpg", "sales": "594 facturas, 523 pendientes de radicar y 106 vencidas (20,3%), con 1.047 millones por radicar. El semáforo de radicación muestra 106 en rojo, 147 en naranja, 0 en amarillo y 270 en verde, y los insights señalan automáticamente la EPS con más facturas vencidas y la factura más antigua sin radicar. Su tooltip indica que las barras largas son las EPS a gestionar primero.", "alt": {"img": "img/lienzos/envio_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    radicacion: {"modulo": "Radicación", "titulo": "Radicación", "img": "img/lienzos/radicacion.jpg", "sales": "7.495 facturas radicadas por 12.253 millones, 111,4% por encima del año anterior (5.795 millones). Valor radicado por EPS, tendencia por período y detalle de cada factura radicada, con insights automáticos. Su tooltip aclara que las barras largas son las EPS con mayor valor radicado.", "alt": {"img": "img/lienzos/radicacion_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    oportunidad_radicacion: {"modulo": "Radicación", "titulo": "Oportunidad Radicación", "img": "img/lienzos/oportunidad_radicacion.jpg", "isNew": true, "sales": "Ciclo total de 34,8 días: 31,2 para pasar de facturar a confirmar y 3,6 de confirmar a radicar; el 76,0% se radica a la EPS en 5 días o menos, el 62,4% se confirma en 20 días o menos y 71 facturas siguen registradas sin confirmar. Su tooltip aclara que una línea de ciclo al alza significa un proceso más lento, y que los meses recientes pueden verse bajos porque aún hay facturas por radicar.", "alt": {"img": "img/lienzos/oportunidad_radicacion_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    contratos_ips: {"modulo": "Contratos", "titulo": "Contratos IPS", "img": "img/lienzos/contratos_ips.jpg", "sales": "310 contratos, de los cuales solo 12 tienen valor registrado en SIIFA (3,9% de cobertura), por 113,55 mil millones; el resto aparece en una tabla de contratos sin valor para su gestión. Su tooltip aclara que el valor se cuenta una vez por contrato (el máximo registrado).", "alt": {"img": "img/lienzos/contratos_ips_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
     pbs: {"modulo": "Contratos", "titulo": "PBS", "img": "img/lienzos/pbs.jpg", "sales": "475 planes de beneficios: 313 activos (65,9%), 162 bloqueados, 55 con vigencia expirada y 249 por vencer a 90 días. 251 contratos comparten la misma fecha de terminación, señal de renovación en bloque y no de vigencias negociadas, y una interpretación automática lo explica."},
-    home: {"modulo": "Nuevo menú", "titulo": "Menú de navegación PAIH", "img": "img/lienzos/home.jpg", "isNew": true, "sales": "Un solo punto de entrada para todo PAIH: 7 módulos y 25 lienzos agrupados por proceso (Citas, Ingresos · Hospitalización, Facturación, Radicación, Glosas, Cartera y Contratos). Cada lienzo tiene su botón de navegación entre lienzos del mismo módulo y su regreso a Inicio, y los gráficos incluyen tooltips (i) con su Objetivo y su Lectura."},
+    semaforo_glosas: {"modulo": "Glosas", "titulo": "Semáforo Glosas", "img": "img/lienzos/semaforo_glosas.jpg", "sales": "1.483 glosas pendientes por 2.034 millones, todas en rojo (más de 30 días sin gestión), con detalle por EPS, por valor y por factura, y una narrativa que prioriza la atención. Su tooltip de Glosas por mes explica que un área creciente indica que se glosa más cada mes.", "alt": {"img": "img/lienzos/semaforo_glosas_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    glosas: {"modulo": "Glosas", "titulo": "Glosas", "img": "img/lienzos/glosas.jpg", "sales": "20.103 millones objetados sobre 22.298 millones de servicio (90,16%): 14.169 glosas pendientes (88%) y 1.880 con trámite (12%). Por concepto de glosa, EPS, régimen y estado. El tooltip de Valor objetado por concepto indica que las barras largas son los conceptos a atacar con prevención.", "alt": {"img": "img/lienzos/glosas_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    tramites_cosecha: {"modulo": "Glosas", "titulo": "Trámites Cosecha", "img": "img/lienzos/tramites_cosecha.jpg", "sales": "10,21 mil millones objetados, 254,98 millones aceptados y 9,95 mil millones no aceptados, con 91,3% sin gestionar y 69,32 días promedio de respuesta; una narrativa automática señala el backlog crítico. Su tooltip aclara que aceptado es la glosa que el hospital aceptó (se pierde) y tramitado no aceptado es la glosa defendida con respuesta.", "alt": {"img": "img/lienzos/tramites_cosecha_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    gestion_tramites: {"modulo": "Glosas", "titulo": "Gestión Trámites", "img": "img/lienzos/gestion_tramites.jpg", "sales": "776 millones tramitados: 131,6 millones aceptados y 644,6 millones no aceptados (17,0% de aceptación) en 9.820 trámites, con un promedio de 228,67 días de respuesta. Su tooltip aclara que solo cuenta trámites con respuesta (excluye los que no tienen trámite) y que las barras largas son los conceptos con más valor aceptado.", "alt": {"img": "img/lienzos/gestion_tramites_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    facturacion: {"modulo": "Facturación", "titulo": "Facturación", "img": "img/lienzos/facturacion.jpg", "sales": "11,63 mil millones facturados en 6.825 facturas: ticket promedio de 1,70 millones y 252,8 facturas por día, con 97,71% facturado por evento. Por régimen (90,33% subsidiado), por EPS y por tipo de factura. El tooltip de Valor factura por régimen explica que cada porción es la suma del valor de las facturas del régimen.", "alt": {"img": "img/lienzos/facturacion_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    snapshot_facturacion: {"modulo": "Facturación", "titulo": "Snapshot Facturación", "img": "img/lienzos/snapshot_facturacion.jpg", "sales": "Facturado bruto de 11.619 millones: 11.005 millones de facturación limpia (94,71%), 372 millones de refacturación y 241 millones de facturas anuladas. Compara lo facturado a la primera con lo refacturado y baja hasta cada factura. Su tooltip aclara que una refacturación alta frente a la limpia indica problemas de calidad en la facturación.", "alt": {"img": "img/lienzos/snapshot_facturacion_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    facturacion_ejecutiva: {"modulo": "Facturación", "titulo": "Facturación Ejecutiva", "img": "img/lienzos/facturacion_ejecutiva.jpg", "isNew": true, "sales": "Facturación neta de 11,4 mil millones, 114,8% por encima del año anterior, con ticket promedio neto de 2 millones, 2,1% anulado y refacturación del 3,2% del facturado bruto, emitida en promedio 5 meses después de la factura original. Cuatro lecturas automáticas, tasa de anulación por sede, Top 10 EPS y valor refacturado según el rezago. Su tooltip advierte que una franja roja grande en un mes indica un problema de calidad en el proceso de facturación de ese mes.", "alt": {"img": "img/lienzos/facturacion_ejecutiva_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    menu: {"modulo": "Nuevo menú", "titulo": "Menú de navegación PAIH", "img": "img/lienzos/menu_asistenciales.jpg", "alt": {"img": "img/lienzos/menu_administrativos.jpg", "label": "Administrativos", "kind": "view"}, "mainLabel": "Asistenciales", "isNew": true, "sales": "Un solo punto de entrada para todo PAIH, ahora dividido en dos menús: Módulos Asistenciales (Citas, Cirugías, Ingresos y Hospitalización: 12 lienzos) y Módulos Administrativos (Cartera, Radicación, Contratos, Glosas y Facturación: 16 lienzos). Un botón en cada menú permite pasar de uno a otro; cada lienzo tiene su navegación entre lienzos del mismo módulo y su regreso a Inicio, y los gráficos incluyen tooltips (i) con su Objetivo y su Lectura."},
   };
 
   let lienzoCur = null;
@@ -1214,12 +1305,12 @@
   function setLienzoView(view) {
     const d = LIENZOS[lienzoCur];
     if (!d) return;
-    const useTip = view === 'tip' && d.tip;
+    const useAlt = (view === 'alt' || view === 'tip') && d.alt;
     const img = document.getElementById('lienzoModalImg');
-    img.src = useTip ? d.tip : d.img;
-    img.alt = (useTip ? 'Tooltip explicativo del lienzo ' : 'Captura del lienzo ') + d.titulo;
+    img.src = useAlt ? d.alt.img : d.img;
+    img.alt = (useAlt && d.alt.kind === 'tip' ? 'Tooltip explicativo del lienzo ' : 'Captura de ') + d.titulo;
     document.querySelectorAll('#lienzoTabs button').forEach(function (btn) {
-      const on = btn.dataset.view === (useTip ? 'tip' : 'main');
+      const on = btn.dataset.view === (useAlt ? 'alt' : 'main');
       btn.classList.toggle('on', on);
       btn.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
@@ -1233,8 +1324,14 @@
     document.getElementById('lienzoModalTitle').textContent = d.titulo;
     document.getElementById('lienzoModalSales').textContent = d.sales;
     document.getElementById('lienzoModalNew').hidden = !d.isNew;
-    document.getElementById('lienzoTabs').hidden = !d.tip;
-    document.getElementById('lienzoModalTipNote').hidden = !d.tip;
+    const tabs = document.getElementById('lienzoTabs');
+    tabs.hidden = !d.alt;
+    if (d.alt) {
+      document.getElementById('lmMainLbl').textContent = d.mainLabel || 'Lienzo';
+      document.getElementById('lmAltLbl').textContent = d.alt.label;
+      tabs.classList.toggle('lm-tabs--tip', d.alt.kind === 'tip');
+    }
+    document.getElementById('lienzoModalTipNote').hidden = !(d.alt && d.alt.kind === 'tip');
     setLienzoView(view || 'main');
     document.querySelector('.lienzo-modal').scrollTop = 0;
     const overlay = document.getElementById('lienzoOverlay');
@@ -1253,7 +1350,17 @@
 const MODULES = [
     { label: "Nuevo menú", color: "#0E7C86", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>`, isNew: true, slides: [
       { img: "img/historias/nuevas/nuevo-menu.jpg" },
-      { img: "img/lienzos/home.jpg" }
+      { img: "img/lienzos/menu_asistenciales.jpg" },
+      { img: "img/lienzos/menu_administrativos.jpg" }
+    ] },
+    { label: "Cirugías", color: "#C55A11", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l9-9"/><path d="M12 12l5.5-8.5L21 7l-5 6z"/></svg>`, isNew: true, slides: [
+      { img: "img/historias/nuevas/cirugias.jpg" },
+      { img: "img/lienzos/programacion_cirugias.jpg" },
+      { img: "img/lienzos/programacion_cirugias_tooltip.jpg" },
+      { img: "img/lienzos/analisis_cirugias.jpg" },
+      { img: "img/lienzos/analisis_cirugias_tooltip.jpg" },
+      { img: "img/lienzos/analisis_medicos.jpg" },
+      { img: "img/lienzos/analisis_medicos_tooltip.jpg" }
     ] },
     { label: "Tooltips", color: "#0D9C8F", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r="0.7"/></svg>`, isNew: true, slides: [
       { img: "img/historias/nuevas/tooltips.jpg" },
@@ -1262,7 +1369,8 @@ const MODULES = [
       { img: "img/lienzos/facturacion_ejecutiva_tooltip.jpg" },
       { img: "img/lienzos/oportunidad_radicacion_tooltip.jpg" },
       { img: "img/lienzos/cartera_ejecutiva_tooltip.jpg" },
-      { img: "img/lienzos/anticipos_ejecutivo_tooltip.jpg" }
+      { img: "img/lienzos/anticipos_ejecutivo_tooltip.jpg" },
+      { img: "img/lienzos/programacion_cirugias_tooltip.jpg" }
     ] },
     { label: "Arquitectura", color: "#0B2542", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`, slides: [
       { img: "img/historias/arquitectura/01.jpg" },

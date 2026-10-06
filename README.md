@@ -8,26 +8,35 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 
 ## Contenido del sitio
 
-- **Novedades** (`#novedades`): el menú de navegación unificado, los tooltips explicativos y los lienzos nuevos, cada uno con acceso directo.
-- **Historias por módulo**: barra de círculos sobre el menú que reproduce tarjetas y capturas de cada módulo como historias, con pausa/continuar (botón o barra espaciadora). Incluye las historias *Nuevo menú* y *Tooltips*.
-- **Menú interactivo de lienzos** (`#productos`): cada módulo activo se despliega en una tarjeta con sus lienzos. Al hacer clic en un lienzo se abre un modal con una captura del tablero real, una pestaña **Con tooltip** (cuando el lienzo los tiene) y una explicación de qué significan sus cifras.
+- **Novedades** (`#novedades`): el menú dividido en asistencial y administrativo, el módulo Cirugías, los tooltips explicativos y las vistas ejecutivas, cada uno con acceso directo.
+- **Historias por módulo**: barra de círculos sobre el menú que reproduce tarjetas y capturas de cada módulo como historias, con pausa/continuar (botón o barra espaciadora). Incluye las historias *Nuevo menú*, *Cirugías* y *Tooltips*.
+- **Menú interactivo de lienzos** (`#productos`): los módulos se agrupan en *Asistenciales* y *Administrativos*, y cada uno se despliega en una tarjeta con sus lienzos. Al hacer clic en un lienzo se abre un modal con una captura del tablero real, una pestaña **Con tooltip** (cuando el lienzo los tiene; en el menú, una pestaña por cada grupo) y una explicación de qué significan sus cifras.
 - **Roadmap** (`#proximamente`): módulos en construcción, listados con su estado.
 - **Sección de clientes** (`#clientes`) y **formulario de contacto** (`#contacto`), con envío funcional vía FormSubmit.
 - **Botón flotante de WhatsApp**, **contador de visitas** (vía Abacus) y animaciones con soporte de `prefers-reduced-motion`.
 
 ## Módulos activos y lienzos
 
+**Módulos Asistenciales** (12 lienzos)
+
 | Módulo | Lienzos |
 |---|---|
 | Citas | Citas Médicas, Comparativo Citas, Oportunidad Citas, Oportunidad Deseada, Capacidad Instalada |
-| Ingresos · Hospitalización | Análisis Ingresos, **Ingresos Ejecutivo**, Estancia, Egresos |
-| Facturación | Facturación, Snapshot Facturación, **Facturación Ejecutiva** |
-| Radicación | Envío, Radicación, **Oportunidad Radicación** |
-| Glosas | Semáforo Glosas, Glosas, Trámites Cosecha, Gestión Trámites |
-| Cartera | Cartera por Edades, **Cartera Ejecutiva**, Anticipos, **Anticipos Ejecutivo** |
-| Contratos | Contratos IPS, PBS |
+| Cirugías | **Programación de Cirugías**, **Análisis de Cirugías**, **Análisis por Médico** |
+| Ingresos | Análisis Ingresos, **Ingresos Ejecutivo** |
+| Hospitalización | Estancia, Egresos |
 
-En total: **7 módulos y 25 lienzos** publicados (en negrita, los 5 lienzos nuevos). 20 de ellos incluyen **tooltips explicativos (i)**: cada gráfico indica su Objetivo y cómo hacer su Lectura. La estructura sigue el nuevo menú de navegación del reporte (`Home`).
+**Módulos Administrativos** (16 lienzos)
+
+| Módulo | Lienzos |
+|---|---|
+| Cartera | Cartera por Edades, **Cartera Ejecutiva**, Anticipos, **Anticipos Ejecutivo** |
+| Radicación | Envío, Radicación, **Oportunidad Radicación** |
+| Contratos | Contratos IPS, PBS |
+| Glosas | Semáforo Glosas, Glosas, Trámites Cosecha, Gestión Trámites |
+| Facturación | Facturación, Snapshot Facturación, **Facturación Ejecutiva** |
+
+En total: **9 módulos y 28 lienzos** publicados (en negrita, los más recientes). 23 de ellos incluyen **tooltips explicativos (i)**: cada gráfico indica su Objetivo y cómo hacer su Lectura. La estructura sigue el menú del reporte, dividido en *Módulos Asistenciales* y *Módulos Administrativos*, cada uno con un botón para pasar al otro.
 
 ### En roadmap (aún no publicados en el sitio)
 
@@ -42,7 +51,7 @@ Todas las capturas de tableros que aparecen en el sitio están anonimizadas ante
 - Nombres de médicos → `MEDICO PAIH UNO`, `MEDICO PAIH DOS`, …
 - Prefijos de número de factura (p. ej. `FHUS`, `HUSM`) → `PAIH`
 - Datos de pacientes (nombre, documento) → reemplazados por aviso de confidencialidad, conforme a la Ley 1581 de 2012
-- Los textos de los tooltips y de las narrativas automáticas también se revisan: si mencionan sedes u otros nombres propios, se reescriben con los alias `SEDE PAIH …`
+- Los textos de los tooltips y de las narrativas automáticas también se revisan: si mencionan sedes, nombres propios o campos técnicos internos de la base de datos, se reescriben
 
 ## Stack técnico
 
