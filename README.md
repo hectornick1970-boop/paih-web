@@ -26,7 +26,7 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 | Ingresos | Análisis Ingresos, **Ingresos Ejecutivo** |
 | Hospitalización | Estancia, Egresos |
 
-**Módulos Administrativos** (16 lienzos)
+**Módulos Administrativos** (24 lienzos)
 
 | Módulo | Lienzos |
 |---|---|
@@ -35,12 +35,14 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 | Contratos | Contratos IPS, PBS |
 | Glosas | Semáforo Glosas, Glosas, Trámites Cosecha, Gestión Trámites |
 | Facturación | Facturación, Snapshot Facturación, **Facturación Ejecutiva** |
+| Producción | **Producción Resumen**, **Producción Top 10**, **Producción RIPS**, **Producción Detalle** |
+| Pasivo CxP | **Pasivo por Edades**, **Pasivo por Tercero / Proveedor**, **Pasivo por Cuenta Contable**, **Pasivo por Origen / Tipo CxP** |
 
-En total: **9 módulos y 28 lienzos** publicados (en negrita, los más recientes). 23 de ellos incluyen **tooltips explicativos (i)**: cada gráfico indica su Objetivo y cómo hacer su Lectura. La estructura sigue el menú del reporte, dividido en *Módulos Asistenciales* y *Módulos Administrativos*, cada uno con un botón para pasar al otro.
+En total: **11 módulos y 36 lienzos** publicados (en negrita, los más recientes). 23 de ellos incluyen **tooltips explicativos (i)**: cada gráfico indica su Objetivo y cómo hacer su Lectura. La estructura sigue el menú del reporte, dividido en *Módulos Asistenciales* y *Módulos Administrativos*, cada uno con un botón para pasar al otro.
 
 ### En roadmap (aún no publicados en el sitio)
 
-- Producción por Áreas de Servicio
+- Sin módulos pendientes por ahora.
 
 ## Privacidad de las capturas
 
@@ -48,6 +50,8 @@ Todas las capturas de tableros que aparecen en el sitio están anonimizadas ante
 
 - Nombre del hospital → `HOSPITAL PAIH`
 - Nombres de sede/centro de atención → `SEDE PAIH UNO`, `SEDE PAIH DOS`, …
+- Nombres de terceros/proveedores y su NIT (Pasivo CxP) → `TERCERO PAIH UNO`, `TERCERO PAIH DOS`, … y `*********`
+- Prefijos numéricos y sufijos de las áreas de servicio (Producción) → se eliminan
 - Nombres de médicos → `MEDICO PAIH UNO`, `MEDICO PAIH DOS`, …
 - Prefijos de número de factura (p. ej. `FHUS`, `HUSM`) → `PAIH`
 - Datos de pacientes (nombre, documento) → reemplazados por aviso de confidencialidad, conforme a la Ley 1581 de 2012

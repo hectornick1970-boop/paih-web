@@ -366,6 +366,12 @@
   .lienzo-card--cartera .lienzo-head{background:#7A8C3E;}
   .lienzo-card--cartera .chip{background:rgba(122,140,62,0.11);color:#7A8C3E;}
   .lienzo-card--cartera .lienzo-item:hover{background:rgba(122,140,62,0.07);}
+  .lienzo-card--produccion .lienzo-head{background:#B8426A;}
+  .lienzo-card--produccion .chip{background:rgba(184,66,106,0.11);color:#B8426A;}
+  .lienzo-card--produccion .lienzo-item:hover{background:rgba(184,66,106,0.07);}
+  .lienzo-card--pasivo .lienzo-head{background:#5E7C8A;}
+  .lienzo-card--pasivo .chip{background:rgba(94,124,138,0.13);color:#4E6B78;}
+  .lienzo-card--pasivo .lienzo-item:hover{background:rgba(94,124,138,0.08);}
 
   /* ===== Clientes ===== */
   #clientes{background:var(--ink);color:#fff;}
@@ -654,7 +660,7 @@
       <div class="section-head">
         <span class="eyebrow">Suite PAIH</span>
         <h2>Un lienzo para cada decisión</h2>
-        <p>Nueve módulos activos y 28 lienzos de análisis, agrupados en módulos asistenciales y administrativos, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos.</p>
+        <p>Once módulos activos y 36 lienzos de análisis, agrupados en módulos asistenciales y administrativos, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos.</p>
       </div>
 
       <div class="stories-bar" id="storiesBar"></div>
@@ -667,7 +673,7 @@
           <div class="nov-body">
             <span class="nov-tag">Nuevo</span>
             <h3>Menú dividido: asistencial y administrativo</h3>
-            <p>9 módulos y 28 lienzos en dos menús — 12 asistenciales y 16 administrativos — con un botón para pasar de uno a otro.</p>
+            <p>11 módulos y 36 lienzos en dos menús — 12 asistenciales y 24 administrativos — con un botón para pasar de uno a otro.</p>
             <button class="nov-btn" onclick="openLienzo('menu')">Ver los menús →</button>
           </div>
         </article>
@@ -680,6 +686,28 @@
             <h3>Cirugías: programación, oportunidad y médicos</h3>
             <p>Tres lienzos: cuántas cirugías se programan y se cumplen, cuánto tarda cada una en llegar a quirófano y cómo rinde cada médico.</p>
             <button class="nov-btn" onclick="openLienzo('programacion_cirugias')">Ver Programación de Cirugías →</button>
+          </div>
+        </article>
+        <article class="nov-tile">
+          <button class="nov-media" onclick="openLienzo('produccion_resumen')" aria-label="Ver el nuevo módulo de producción">
+            <img src="img/lienzos/produccion_resumen.jpg" alt="Lienzo Producción Resumen" loading="lazy">
+          </button>
+          <div class="nov-body">
+            <span class="nov-tag">Nuevo módulo</span>
+            <h3>Producción por áreas de servicio</h3>
+            <p>Cuatro lienzos: qué se produce, en qué área de servicio, qué servicios y medicamentos lideran, qué queda sin RIPS y el detalle línea por línea.</p>
+            <button class="nov-btn" onclick="openLienzo('produccion_resumen')">Ver Producción →</button>
+          </div>
+        </article>
+        <article class="nov-tile">
+          <button class="nov-media" onclick="openLienzo('pasivo_edades')" aria-label="Ver el nuevo módulo de pasivo CxP">
+            <img src="img/lienzos/pasivo_edades.jpg" alt="Lienzo Pasivo CxP por Edades" loading="lazy">
+          </button>
+          <div class="nov-body">
+            <span class="nov-tag">Nuevo módulo</span>
+            <h3>Pasivo CxP: lo que la institución debe</h3>
+            <p>Cuatro lienzos: pasivo por edades, por tercero y proveedor, por cuenta contable y por origen, con variación frente al corte anterior.</p>
+            <button class="nov-btn" onclick="openLienzo('pasivo_edades')">Ver Pasivo CxP →</button>
           </div>
         </article>
         <article class="nov-tile">
@@ -854,7 +882,7 @@
       <div class="modgroup" id="modulos-administrativos">
         <div class="modgroup-head">
           <h3>Módulos Administrativos</h3>
-          <p>Cartera, Radicación, Contratos, Glosas y Facturación · 16 lienzos</p>
+          <p>Cartera, Radicación, Contratos, Glosas, Facturación, Producción y Pasivo CxP · 24 lienzos</p>
         </div>
         <div class="lienzo-grid">
 
@@ -1030,6 +1058,86 @@
           </nav>
         </article>
 
+        <!-- PRODUCCIÓN -->
+        <article class="lienzo-card lienzo-card--produccion">
+          <div class="lienzo-head">
+            <span class="lienzo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M4 10l4-5 4 3 5-6 3 3"/><path d="M20 5v6h-6"/></svg>
+            </span>
+            <h3>Producción</h3>
+          </div>
+          <nav class="lienzo-list">
+            <button class="lienzo-item" onclick="openLienzo('produccion_resumen')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.2"/><path d="M9 7l1.5-3h3L15 7"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Producción Resumen <span class="new-tag">Nuevo</span></span>
+                <span class="d">Unidades producidas por mes, tipo de ingreso, área de servicio, tipo de servicio y estado de facturación.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('produccion_top10')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="20" x2="7" y2="10"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="13"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Producción Top 10 <span class="new-tag">Nuevo</span></span>
+                <span class="d">Los 10 servicios IPS y los 10 medicamentos y suministros con más unidades, con valor entidad y paciente.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('produccion_rips')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><line x1="9" y1="12" x2="16" y2="12"/><line x1="9" y1="16" x2="16" y2="16"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Producción RIPS <span class="new-tag">Nuevo</span></span>
+                <span class="d">Unidades por servicio y grupo RIPS, y control de las líneas de servicio que quedan sin RIPS.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('produccion_detalle')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="10" x2="9" y2="20"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Producción Detalle <span class="new-tag">Nuevo</span></span>
+                <span class="d">Línea por línea: médico, área de servicio, código IPS, CUPS y servicio, con valor estimado.</span>
+              </span>
+            </button>
+          </nav>
+        </article>
+
+        <!-- PASIVO CXP -->
+        <article class="lienzo-card lienzo-card--pasivo">
+          <div class="lienzo-head">
+            <span class="lienzo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+            </span>
+            <h3>Pasivo CxP</h3>
+          </div>
+          <nav class="lienzo-list">
+            <button class="lienzo-item" onclick="openLienzo('pasivo_edades')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="20" x2="7" y2="10"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="13"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Pasivo por Edades <span class="new-tag">Nuevo</span></span>
+                <span class="d">Pasivo total por rango de edad, variación frente al corte anterior, % vencido y mayor acreedor.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('pasivo_tercero')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Pasivo por Tercero / Proveedor <span class="new-tag">Nuevo</span></span>
+                <span class="d">Quién concentra el pasivo: Top 10 de terceros y proveedores y su saldo por rango de edad.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('pasivo_cuenta')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="10" x2="9" y2="20"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Pasivo por Cuenta Contable <span class="new-tag">Nuevo</span></span>
+                <span class="d">Pasivo por cuenta contable, sin vencer vs vencido, con documentos y terceros por cuenta.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('pasivo_origen')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9h9"/><circle cx="12" cy="12" r="9"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Pasivo por Origen / Tipo CxP <span class="new-tag">Nuevo</span></span>
+                <span class="d">Participación del pasivo por origen (cuentas por pagar, inventarios, activos fijos) y su evolución.</span>
+              </span>
+            </button>
+          </nav>
+        </article>
+
         </div>
       </div>
 
@@ -1048,11 +1156,11 @@
       <div class="roadmap-list">
         <div class="roadmap-item">
           <span class="roadmap-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M4 10l4-5 4 3 5-6 3 3"/><path d="M20 5v6h-6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
           </span>
           <div class="roadmap-text">
-            <span class="roadmap-title">Producción por Áreas de Servicio <span class="pending-tag">[PENDIENTE]</span></span>
-            <span class="roadmap-desc">Volumen y valor producido por servicio clínico (consulta, urgencias, hospitalización, apoyo diagnóstico). Discovery aún sin iniciar.</span>
+            <span class="roadmap-title">Nuevos módulos en diseño</span>
+            <span class="roadmap-desc">Por ahora no hay módulos pendientes de publicar. Si necesita uno a la medida, escríbanos desde el formulario de contacto.</span>
           </div>
         </div>
       </div>
@@ -1297,6 +1405,14 @@
     facturacion: {"modulo": "Facturación", "titulo": "Facturación", "img": "img/lienzos/facturacion.jpg", "sales": "11,63 mil millones facturados en 6.825 facturas: ticket promedio de 1,70 millones y 252,8 facturas por día, con 97,71% facturado por evento. Por régimen (90,33% subsidiado), por EPS y por tipo de factura. El tooltip de Valor factura por régimen explica que cada porción es la suma del valor de las facturas del régimen.", "alt": {"img": "img/lienzos/facturacion_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
     snapshot_facturacion: {"modulo": "Facturación", "titulo": "Snapshot Facturación", "img": "img/lienzos/snapshot_facturacion.jpg", "sales": "Facturado bruto de 11.619 millones: 11.005 millones de facturación limpia (94,71%), 372 millones de refacturación y 241 millones de facturas anuladas. Compara lo facturado a la primera con lo refacturado y baja hasta cada factura. Su tooltip aclara que una refacturación alta frente a la limpia indica problemas de calidad en la facturación.", "alt": {"img": "img/lienzos/snapshot_facturacion_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
     facturacion_ejecutiva: {"modulo": "Facturación", "titulo": "Facturación Ejecutiva", "img": "img/lienzos/facturacion_ejecutiva.jpg", "isNew": true, "sales": "Facturación neta de 11,4 mil millones, 114,8% por encima del año anterior, con ticket promedio neto de 2 millones, 2,1% anulado y refacturación del 3,2% del facturado bruto, emitida en promedio 5 meses después de la factura original. Cuatro lecturas automáticas, tasa de anulación por sede, Top 10 EPS y valor refacturado según el rezago. Su tooltip advierte que una franja roja grande en un mes indica un problema de calidad en el proceso de facturación de ese mes.", "alt": {"img": "img/lienzos/facturacion_ejecutiva_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    produccion_resumen: {"modulo": "Producción", "titulo": "Producción Resumen", "img": "img/lienzos/produccion_resumen.jpg", "isNew": true, "sales": "Un mes de producción: 268.872 unidades (268.248 con factura y 624 sin factura), por $11.146 millones de valor total estimado, del cual $11.139 millones corresponden a la entidad. Separa 85.408 unidades de servicios, 183.464 de medicamentos y 8,25 millones de litros de oxígeno, y las abre por tipo de ingreso (urgencias lidera con 184 mil), por área de servicio y por estado de facturación (99,77% con factura). Filtros por fechas, sede, área, tipo de ingreso, tipo de servicio y facturación."},
+    produccion_top10: {"modulo": "Producción", "titulo": "Producción Top 10", "img": "img/lienzos/produccion_top10.jpg", "isNew": true, "sales": "Los 10 servicios IPS y los 10 medicamentos y suministros que más se producen: el hemograma lidera los servicios con 71 mil unidades y la jeringa de 10 cc los suministros con 0,58 millones. Arriba, el total de unidades (4 millones), las que están sin factura (102 mil) y el valor estimado para la entidad ($153 mil millones) y el paciente. Sirve para saber en qué se concentra la operación y dónde mirar primero el costo."},
+    produccion_rips: {"modulo": "Producción", "titulo": "Producción RIPS", "img": "img/lienzos/produccion_rips.jpg", "isNew": true, "sales": "Cruza la producción con la clasificación RIPS: 3 millones de líneas de servicio, de las cuales 12 mil (1,1%) no tienen RIPS. Muestra las unidades por servicio y por grupo RIPS (medicamentos y suministros 3,1 millones; apoyo diagnóstico 0,8 millones) y baja a cada código IPS con su CUPS, tipo de servicio y grupo RIPS, para corregir antes de reportar."},
+    produccion_detalle: {"modulo": "Producción", "titulo": "Producción Detalle", "img": "img/lienzos/produccion_detalle.jpg", "isNew": true, "sales": "El detalle de la producción línea por línea: médico, área de servicio, código IPS, CUPS y servicio. En el mes consultado, 258 mil unidades en 153 mil líneas de servicio y 2 mil servicios y medicamentos distintos, con valor estimado para entidad y paciente. Es el lienzo para auditar cualquier cifra de los otros tres hasta su origen."},
+    pasivo_edades: {"modulo": "Pasivo CxP", "titulo": "Pasivo por Edades", "img": "img/lienzos/pasivo_edades.jpg", "isNew": true, "sales": "Pasivo total de $95 mil millones en 3.712 documentos y 806 terceros, 2,4% por debajo del corte anterior. El 97,7% está vencido y el 81,6% supera los 360 días ($77 mil millones), con una edad promedio ponderada de 1.321 días. Incluye lecturas automáticas del mayor acreedor (11,8% del pasivo) y de la cuenta principal, la evolución mensual y el pasivo por origen."},
+    pasivo_tercero: {"modulo": "Pasivo CxP", "titulo": "Pasivo por Tercero / Proveedor", "img": "img/lienzos/pasivo_tercero.jpg", "isNew": true, "sales": "Quién concentra la deuda: de 806 terceros con saldo, el mayor acreedor reúne $11.221 millones (11,8% del pasivo del corte). Muestra el Top 10 de terceros y de proveedores y una tabla con el saldo de cada uno por rango de edad, de sin vencer a 361 días o más, con totales por columna."},
+    pasivo_cuenta: {"modulo": "Pasivo CxP", "titulo": "Pasivo por Cuenta Contable", "img": "img/lienzos/pasivo_cuenta.jpg", "isNew": true, "sales": "El pasivo visto por cuenta contable: 31 cuentas con saldo, $93 mil millones vencidos (97,7%) y la cuenta de honorarios con el 30,6% del pasivo ($28.995 millones). Compara sin vencer contra vencido en el Top 10 de cuentas y detalla cada una por rango de edad, con su participación, número de documentos y terceros."},
+    pasivo_origen: {"modulo": "Pasivo CxP", "titulo": "Pasivo por Origen / Tipo CxP", "img": "img/lienzos/pasivo_origen.jpg", "isNew": true, "sales": "De dónde viene el pasivo: cuentas por pagar concentra el 90,7% ($85.999 millones), inventarios el 9,3% y activos fijos una fracción mínima. Participación por origen, sin vencer contra vencido y evolución mensual, más una tabla por origen y rango de edad con documentos y terceros."},
     menu: {"modulo": "Nuevo menú", "titulo": "Menú de navegación PAIH", "img": "img/lienzos/menu_asistenciales.jpg", "alt": {"img": "img/lienzos/menu_administrativos.jpg", "label": "Administrativos", "kind": "view"}, "mainLabel": "Asistenciales", "isNew": true, "sales": "Un solo punto de entrada para todo PAIH, ahora dividido en dos menús: Módulos Asistenciales (Citas, Cirugías, Ingresos y Hospitalización: 12 lienzos) y Módulos Administrativos (Cartera, Radicación, Contratos, Glosas y Facturación: 16 lienzos). Un botón en cada menú permite pasar de uno a otro; cada lienzo tiene su navegación entre lienzos del mismo módulo y su regreso a Inicio, y los gráficos incluyen tooltips (i) con su Objetivo y su Lectura."},
   };
 
@@ -1418,6 +1534,18 @@ const MODULES = [
       { img: "img/historias/cartera/01.jpg" },
       { img: "img/historias/nuevas/cartera-ejecutiva.jpg" },
       { img: "img/historias/nuevas/anticipos-ejecutivo.jpg" }
+    ] },
+    { label: "Producción", color: "#B8426A", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M4 10l4-5 4 3 5-6 3 3"/><path d="M20 5v6h-6"/></svg>`, isNew: true, slides: [
+      { img: "img/lienzos/produccion_resumen.jpg" },
+      { img: "img/lienzos/produccion_top10.jpg" },
+      { img: "img/lienzos/produccion_rips.jpg" },
+      { img: "img/lienzos/produccion_detalle.jpg" }
+    ] },
+    { label: "Pasivo CxP", color: "#5E7C8A", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>`, isNew: true, slides: [
+      { img: "img/lienzos/pasivo_edades.jpg" },
+      { img: "img/lienzos/pasivo_tercero.jpg" },
+      { img: "img/lienzos/pasivo_cuenta.jpg" },
+      { img: "img/lienzos/pasivo_origen.jpg" }
     ] }
   ];
 
