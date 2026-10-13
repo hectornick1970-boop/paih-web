@@ -26,7 +26,7 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 | Ingresos | Análisis Ingresos, **Ingresos Ejecutivo** |
 | Hospitalización | Estancia, Egresos |
 
-**Módulos Administrativos** (24 lienzos)
+**Módulos Administrativos** (25 lienzos)
 
 | Módulo | Lienzos |
 |---|---|
@@ -36,9 +36,9 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 | Glosas | Semáforo Glosas, Glosas, Trámites Cosecha, Gestión Trámites |
 | Facturación | Facturación, Snapshot Facturación, **Facturación Ejecutiva** |
 | Producción | **Producción Resumen**, **Producción Top 10**, **Producción RIPS**, **Producción Detalle** |
-| Pasivo CxP | **Pasivo por Edades**, **Pasivo por Tercero / Proveedor**, **Pasivo por Cuenta Contable**, **Pasivo por Origen / Tipo CxP** |
+| Pasivo CxP | **Pasivo por Edades**, **Pasivo por Tercero / Proveedor**, **Pasivo por Cuenta Contable**, **Pasivo por Origen / Tipo CxP**, **Pasivo Anticipos** |
 
-En total: **11 módulos y 36 lienzos** publicados (en negrita, los más recientes). 23 de ellos incluyen **tooltips explicativos (i)**: cada gráfico indica su Objetivo y cómo hacer su Lectura. La estructura sigue el menú del reporte, dividido en *Módulos Asistenciales* y *Módulos Administrativos*, cada uno con un botón para pasar al otro.
+En total: **11 módulos y 37 lienzos** publicados (en negrita, los más recientes). 23 de ellos incluyen **tooltips explicativos (i)**: cada gráfico indica su Objetivo y cómo hacer su Lectura. La estructura sigue el menú del reporte, dividido en *Módulos Asistenciales* y *Módulos Administrativos*, cada uno con un botón para pasar al otro.
 
 ### En roadmap (aún no publicados en el sitio)
 

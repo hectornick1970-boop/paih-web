@@ -660,7 +660,7 @@
       <div class="section-head">
         <span class="eyebrow">Suite PAIH</span>
         <h2>Un lienzo para cada decisión</h2>
-        <p>Once módulos activos y 36 lienzos de análisis, agrupados en módulos asistenciales y administrativos, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos.</p>
+        <p>Once módulos activos y 37 lienzos de análisis, agrupados en módulos asistenciales y administrativos, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos.</p>
       </div>
 
       <div class="stories-bar" id="storiesBar"></div>
@@ -673,7 +673,7 @@
           <div class="nov-body">
             <span class="nov-tag">Nuevo</span>
             <h3>Menú dividido: asistencial y administrativo</h3>
-            <p>11 módulos y 36 lienzos en dos menús — 12 asistenciales y 24 administrativos — con un botón para pasar de uno a otro.</p>
+            <p>11 módulos y 37 lienzos en dos menús — 12 asistenciales y 25 administrativos — con un botón para pasar de uno a otro.</p>
             <button class="nov-btn" onclick="openLienzo('menu')">Ver los menús →</button>
           </div>
         </article>
@@ -706,7 +706,7 @@
           <div class="nov-body">
             <span class="nov-tag">Nuevo módulo</span>
             <h3>Pasivo CxP: lo que la institución debe</h3>
-            <p>Cuatro lienzos: pasivo por edades, por tercero y proveedor, por cuenta contable y por origen, con variación frente al corte anterior.</p>
+            <p>Cinco lienzos: pasivo por edades, por tercero y proveedor, por cuenta contable, por origen y anticipos sin aplicar, con variación frente al corte anterior.</p>
             <button class="nov-btn" onclick="openLienzo('pasivo_edades')">Ver Pasivo CxP →</button>
           </div>
         </article>
@@ -882,7 +882,7 @@
       <div class="modgroup" id="modulos-administrativos">
         <div class="modgroup-head">
           <h3>Módulos Administrativos</h3>
-          <p>Cartera, Radicación, Contratos, Glosas, Facturación, Producción y Pasivo CxP · 24 lienzos</p>
+          <p>Cartera, Radicación, Contratos, Glosas, Facturación, Producción y Pasivo CxP · 25 lienzos</p>
         </div>
         <div class="lienzo-grid">
 
@@ -1133,6 +1133,13 @@
               <span class="lienzo-item-text">
                 <span class="t">Pasivo por Origen / Tipo CxP <span class="new-tag">Nuevo</span></span>
                 <span class="d">Participación del pasivo por origen (cuentas por pagar, inventarios, activos fijos) y su evolución.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('pasivo_anticipos')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Anticipos <span class="new-tag">Nuevo</span></span>
+                <span class="d">Anticipos entregados sin aplicar por tercero: lo que se debe, el anticipo y el saldo neto, por cuenta contable.</span>
               </span>
             </button>
           </nav>
@@ -1413,6 +1420,7 @@
     pasivo_tercero: {"modulo": "Pasivo CxP", "titulo": "Pasivo por Tercero / Proveedor", "img": "img/lienzos/pasivo_tercero.jpg", "isNew": true, "sales": "Quién concentra la deuda: de 806 terceros con saldo, el mayor acreedor reúne $11.221 millones (11,8% del pasivo del corte). Muestra el Top 10 de terceros y de proveedores y una tabla con el saldo de cada uno por rango de edad, de sin vencer a 361 días o más, con totales por columna."},
     pasivo_cuenta: {"modulo": "Pasivo CxP", "titulo": "Pasivo por Cuenta Contable", "img": "img/lienzos/pasivo_cuenta.jpg", "isNew": true, "sales": "El pasivo visto por cuenta contable: 31 cuentas con saldo, $93 mil millones vencidos (97,7%) y la cuenta de honorarios con el 30,6% del pasivo ($28.995 millones). Compara sin vencer contra vencido en el Top 10 de cuentas y detalla cada una por rango de edad, con su participación, número de documentos y terceros."},
     pasivo_origen: {"modulo": "Pasivo CxP", "titulo": "Pasivo por Origen / Tipo CxP", "img": "img/lienzos/pasivo_origen.jpg", "isNew": true, "sales": "De dónde viene el pasivo: cuentas por pagar concentra el 90,7% ($85.999 millones), inventarios el 9,3% y activos fijos una fracción mínima. Participación por origen, sin vencer contra vencido y evolución mensual, más una tabla por origen y rango de edad con documentos y terceros."},
+    pasivo_anticipos: {"modulo": "Pasivo CxP", "titulo": "Pasivo Anticipos", "img": "img/lienzos/pasivo_anticipos.jpg", "isNew": true, "sales": "Anticipos entregados que aún no se han aplicado frente a lo que se debe: 6 terceros con anticipo y 8 documentos por 2,6 millones, es decir 0,0% del pasivo de 95 mil millones. Compara por tercero lo que se debe, el anticipo y el saldo neto, muestra los anticipos por cuenta contable (avances para viáticos y gastos de viaje) y detalla cada tercero con su % cubierto. Un saldo negativo significa que el anticipo supera la deuda, a favor del hospital."},
     menu: {"modulo": "Nuevo menú", "titulo": "Menú de navegación PAIH", "img": "img/lienzos/menu_asistenciales.jpg", "alt": {"img": "img/lienzos/menu_administrativos.jpg", "label": "Administrativos", "kind": "view"}, "mainLabel": "Asistenciales", "isNew": true, "sales": "Un solo punto de entrada para todo PAIH, ahora dividido en dos menús: Módulos Asistenciales (Citas, Cirugías, Ingresos y Hospitalización: 12 lienzos) y Módulos Administrativos (Cartera, Radicación, Contratos, Glosas y Facturación: 16 lienzos). Un botón en cada menú permite pasar de uno a otro; cada lienzo tiene su navegación entre lienzos del mismo módulo y su regreso a Inicio, y los gráficos incluyen tooltips (i) con su Objetivo y su Lectura."},
   };
 
@@ -1479,7 +1487,8 @@ const MODULES = [
       { img: "img/lienzos/pasivo_edades.jpg" },
       { img: "img/lienzos/pasivo_tercero.jpg" },
       { img: "img/lienzos/pasivo_cuenta.jpg" },
-      { img: "img/lienzos/pasivo_origen.jpg" }
+      { img: "img/lienzos/pasivo_origen.jpg" },
+      { img: "img/lienzos/pasivo_anticipos.jpg" }
     ] },
     { label: "Cirugías", color: "#C55A11", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l9-9"/><path d="M12 12l5.5-8.5L21 7l-5 6z"/></svg>`, isNew: true, slides: [
       { img: "img/historias/nuevas/cirugias.jpg" },
