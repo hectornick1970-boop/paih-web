@@ -366,6 +366,9 @@
   .lienzo-card--cartera .lienzo-head{background:#7A8C3E;}
   .lienzo-card--cartera .chip{background:rgba(122,140,62,0.11);color:#7A8C3E;}
   .lienzo-card--cartera .lienzo-item:hover{background:rgba(122,140,62,0.07);}
+  .lienzo-card--interconsultas .lienzo-head{background:#E0A21A;}
+  .lienzo-card--interconsultas .chip{background:rgba(224,162,26,0.14);color:#A87508;}
+  .lienzo-card--interconsultas .lienzo-item:hover{background:rgba(224,162,26,0.09);}
   .lienzo-card--produccion .lienzo-head{background:#B8426A;}
   .lienzo-card--produccion .chip{background:rgba(184,66,106,0.11);color:#B8426A;}
   .lienzo-card--produccion .lienzo-item:hover{background:rgba(184,66,106,0.07);}
@@ -660,7 +663,7 @@
       <div class="section-head">
         <span class="eyebrow">Suite PAIH</span>
         <h2>Un lienzo para cada decisión</h2>
-        <p>Once módulos activos y 37 lienzos de análisis, agrupados en módulos asistenciales y administrativos, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos.</p>
+        <p>Doce módulos activos y 42 lienzos de análisis, agrupados en módulos asistenciales y administrativos, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos.</p>
       </div>
 
       <div class="stories-bar" id="storiesBar"></div>
@@ -673,7 +676,7 @@
           <div class="nov-body">
             <span class="nov-tag">Nuevo</span>
             <h3>Menú dividido: asistencial y administrativo</h3>
-            <p>11 módulos y 37 lienzos en dos menús — 12 asistenciales y 25 administrativos — con un botón para pasar de uno a otro.</p>
+            <p>12 módulos y 42 lienzos en dos menús — 15 asistenciales y 27 administrativos — con un botón para pasar de uno a otro.</p>
             <button class="nov-btn" onclick="openLienzo('menu')">Ver los menús →</button>
           </div>
         </article>
@@ -689,13 +692,24 @@
           </div>
         </article>
         <article class="nov-tile">
+          <button class="nov-media" onclick="openLienzo('interconsultas_resumen')" aria-label="Ver el nuevo módulo de interconsultas">
+            <img src="img/lienzos/interconsultas_resumen.jpg" alt="Lienzo Interconsultas Resumen y Estados" loading="lazy">
+          </button>
+          <div class="nov-body">
+            <span class="nov-tag">Nuevo módulo</span>
+            <h3>Interconsultas: estados, tiempos y médicos</h3>
+            <p>Tres lienzos: cuántas interconsultas se solicitan y se responden, cuánto tarda cada especialidad en responder y qué médicos solicitan y responden.</p>
+            <button class="nov-btn" onclick="openLienzo('interconsultas_resumen')">Ver Interconsultas →</button>
+          </div>
+        </article>
+        <article class="nov-tile">
           <button class="nov-media" onclick="openLienzo('produccion_resumen')" aria-label="Ver el nuevo módulo de producción">
             <img src="img/lienzos/produccion_resumen.jpg" alt="Lienzo Producción Resumen" loading="lazy">
           </button>
           <div class="nov-body">
             <span class="nov-tag">Nuevo módulo</span>
             <h3>Producción por áreas de servicio</h3>
-            <p>Cuatro lienzos: qué se produce, en qué área de servicio, qué servicios y medicamentos lideran, qué queda sin RIPS y el detalle línea por línea.</p>
+            <p>Seis lienzos: qué se produce en unidades y en pesos, en qué área de servicio, qué servicios y medicamentos lideran, qué queda sin RIPS y el detalle línea por línea.</p>
             <button class="nov-btn" onclick="openLienzo('produccion_resumen')">Ver Producción →</button>
           </div>
         </article>
@@ -740,7 +754,7 @@
       <div class="modgroup" id="modulos-asistenciales">
         <div class="modgroup-head">
           <h3>Módulos Asistenciales</h3>
-          <p>Citas, Cirugías, Ingresos y Hospitalización · 12 lienzos</p>
+          <p>Citas, Cirugías, Ingresos, Hospitalización e Interconsultas · 15 lienzos</p>
         </div>
         <div class="lienzo-grid">
 
@@ -876,13 +890,46 @@
           </nav>
         </article>
 
+        <!-- INTERCONSULTAS -->
+        <article class="lienzo-card lienzo-card--interconsultas">
+          <div class="lienzo-head">
+            <span class="lienzo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M12 10v6M9 13h6"/></svg>
+            </span>
+            <h3>Interconsultas</h3>
+          </div>
+          <nav class="lienzo-list">
+            <button class="lienzo-item" onclick="openLienzo('interconsultas_resumen')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M12 10v6M9 13h6"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Resumen y Estados <span class="new-tag">Nuevo</span></span>
+                <span class="d">Interconsultas solicitadas, con respuesta, cerradas y suspendidas: por estado, prioridad, especialidad, sede y área solicitante.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('interconsultas_tiempos')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Tiempos de Respuesta <span class="new-tag">Nuevo</span></span>
+                <span class="d">Horas promedio de respuesta por especialidad, respuestas de más de 48 horas, pendientes y tendencia mensual.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('interconsultas_medico')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Análisis por Médico <span class="new-tag">Nuevo</span></span>
+                <span class="d">Quién solicita y quién responde: interconsultas, urgentes, % con respuesta y horas de respuesta por médico.</span>
+              </span>
+            </button>
+          </nav>
+        </article>
+
         </div>
       </div>
 
       <div class="modgroup" id="modulos-administrativos">
         <div class="modgroup-head">
           <h3>Módulos Administrativos</h3>
-          <p>Cartera, Radicación, Contratos, Glosas, Facturación, Producción y Pasivo CxP · 25 lienzos</p>
+          <p>Cartera, Radicación, Contratos, Glosas, Facturación, Producción y Pasivo CxP · 27 lienzos</p>
         </div>
         <div class="lienzo-grid">
 
@@ -1074,11 +1121,25 @@
                 <span class="d">Unidades producidas por mes, tipo de ingreso, área de servicio, tipo de servicio y estado de facturación.</span>
               </span>
             </button>
+            <button class="lienzo-item" onclick="openLienzo('produccion_resumen_pesos')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.2"/><path d="M9 7l1.5-3h3L15 7"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Producción Resumen $ <span class="new-tag">Nuevo</span></span>
+                <span class="d">El mismo resumen de producción expresado en pesos: valor total, con factura y sin factura, por tipo de ingreso, área y tipo de servicio.</span>
+              </span>
+            </button>
             <button class="lienzo-item" onclick="openLienzo('produccion_top10')">
               <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="20" x2="7" y2="10"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="13"/></svg></span>
               <span class="lienzo-item-text">
                 <span class="t">Producción Top 10 <span class="new-tag">Nuevo</span></span>
                 <span class="d">Los 10 servicios IPS y los 10 medicamentos y suministros con más unidades, con valor entidad y paciente.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('produccion_top10_pesos')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="20" x2="7" y2="10"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="13"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Producción Top 10 $ <span class="new-tag">Nuevo</span></span>
+                <span class="d">Los 10 servicios, medicamentos y áreas de servicio que más valor producen, en pesos.</span>
               </span>
             </button>
             <button class="lienzo-item" onclick="openLienzo('produccion_rips')">
@@ -1421,7 +1482,12 @@
     pasivo_cuenta: {"modulo": "Pasivo CxP", "titulo": "Pasivo por Cuenta Contable", "img": "img/lienzos/pasivo_cuenta.jpg", "isNew": true, "sales": "El pasivo visto por cuenta contable: 31 cuentas con saldo, $93 mil millones vencidos (97,7%) y la cuenta de honorarios con el 30,6% del pasivo ($28.995 millones). Compara sin vencer contra vencido en el Top 10 de cuentas y detalla cada una por rango de edad, con su participación, número de documentos y terceros."},
     pasivo_origen: {"modulo": "Pasivo CxP", "titulo": "Pasivo por Origen / Tipo CxP", "img": "img/lienzos/pasivo_origen.jpg", "isNew": true, "sales": "De dónde viene el pasivo: cuentas por pagar concentra el 90,7% ($85.999 millones), inventarios el 9,3% y activos fijos una fracción mínima. Participación por origen, sin vencer contra vencido y evolución mensual, más una tabla por origen y rango de edad con documentos y terceros."},
     pasivo_anticipos: {"modulo": "Pasivo CxP", "titulo": "Pasivo Anticipos", "img": "img/lienzos/pasivo_anticipos.jpg", "isNew": true, "sales": "Anticipos entregados que aún no se han aplicado frente a lo que se debe: 6 terceros con anticipo y 8 documentos por 2,6 millones, es decir 0,0% del pasivo de 95 mil millones. Compara por tercero lo que se debe, el anticipo y el saldo neto, muestra los anticipos por cuenta contable (avances para viáticos y gastos de viaje) y detalla cada tercero con su % cubierto. Un saldo negativo significa que el anticipo supera la deuda, a favor del hospital."},
-    menu: {"modulo": "Nuevo menú", "titulo": "Menú de navegación PAIH", "img": "img/lienzos/menu_asistenciales.jpg", "alt": {"img": "img/lienzos/menu_administrativos.jpg", "label": "Administrativos", "kind": "view"}, "mainLabel": "Asistenciales", "isNew": true, "sales": "Un solo punto de entrada para todo PAIH, ahora dividido en dos menús: Módulos Asistenciales (Citas, Cirugías, Ingresos y Hospitalización: 12 lienzos) y Módulos Administrativos (Cartera, Radicación, Contratos, Glosas y Facturación: 16 lienzos). Un botón en cada menú permite pasar de uno a otro; cada lienzo tiene su navegación entre lienzos del mismo módulo y su regreso a Inicio, y los gráficos incluyen tooltips (i) con su Objetivo y su Lectura."},
+    interconsultas_resumen: {"modulo": "Interconsultas", "titulo": "Interconsultas Resumen y Estados", "img": "img/lienzos/interconsultas_resumen.jpg", "isNew": true, "sales": "408 interconsultas solicitadas en el mes: 187 con respuesta (45,8%) y 220 cerradas (53,9%), 147 urgentes (36,0%) y una suspendida. Muestra la tendencia mensual y las divide por estado, prioridad, especialidad solicitante y rango de tiempo de respuesta, con el Top 10 de servicios, especialidades, sedes y áreas que más solicitan, y el detalle consecutivo por consecutivo. Respondidas en 24 horas o menos: 77,2%, con un promedio de 17,2 horas."},
+    interconsultas_tiempos: {"modulo": "Interconsultas", "titulo": "Interconsultas Tiempos de Respuesta", "img": "img/lienzos/interconsultas_tiempos.jpg", "isNew": true, "sales": "Cuánto tarda cada especialidad en responder: en el año, 2.858 interconsultas solicitadas, 1.372 con respuesta y 1.476 cerradas, con un promedio de 21,1 horas de respuesta (18,7 en las urgentes) y 73,7% respondidas en 24 horas o menos. Muestra las horas promedio por especialidad, la tendencia mensual, las pendientes, las cerradas, las respuestas de más de 48 horas y el % de suspendidas por especialidad."},
+    interconsultas_medico: {"modulo": "Interconsultas", "titulo": "Interconsultas Análisis por Médico", "img": "img/lienzos/interconsultas_medico.jpg", "isNew": true, "sales": "Quién solicita y quién responde: 408 interconsultas del mes, 28 médicos que responden, 17,2 horas promedio de respuesta y 77,2% respondidas en 24 horas o menos. Ordena a los médicos por interconsultas solicitadas, urgentes, % con respuesta y cerradas, mide las horas promedio de quien responde y detalla cada médico solicitante con sus interconsultas pendientes, respondidas y cerradas."},
+    produccion_resumen_pesos: {"modulo": "Producción", "titulo": "Producción Resumen en pesos ($)", "img": "img/lienzos/produccion_resumen_pesos.jpg", "isNew": true, "sales": "El resumen de producción expresado en pesos: $11.146 millones de valor total estimado en el mes, $11.112 millones con factura y $34 millones sin factura (99,7% facturado). Separa $10.286 millones en servicios, $860 millones en medicamentos y $195 millones en oxígeno, y los abre por tipo de ingreso (urgencias lidera con $7.500 millones), por área de servicio, por tipo de servicio y por estado de facturación."},
+    produccion_top10_pesos: {"modulo": "Producción", "titulo": "Producción Top 10 en pesos ($)", "img": "img/lienzos/produccion_top10_pesos.jpg", "isNew": true, "sales": "Qué genera más valor: los 10 servicios IPS, los 10 medicamentos y suministros y las 10 áreas de servicio con mayor valor en pesos. Hospitalización estancia general lidera las áreas con $1.673 millones y la internación de adultos de complejidad mediana lidera los servicios con $1.515 millones. Arriba, el valor total ($11 mil millones), con factura, sin factura ($751 millones), entidad y paciente."},
+    menu: {"modulo": "Nuevo menú", "titulo": "Menú de navegación PAIH", "img": "img/lienzos/menu_asistenciales.jpg", "alt": {"img": "img/lienzos/menu_administrativos.jpg", "label": "Administrativos", "kind": "view"}, "mainLabel": "Asistenciales", "isNew": true, "sales": "Un solo punto de entrada para todo PAIH, ahora dividido en dos menús: Módulos Asistenciales (Citas, Cirugías, Ingresos, Hospitalización e Interconsultas: 15 lienzos) y Módulos Administrativos (Cartera, Radicación, Contratos, Glosas, Facturación, Producción y Pasivo CxP: 27 lienzos). Un botón en cada menú permite pasar de uno a otro; cada lienzo tiene su navegación entre lienzos del mismo módulo y su regreso a Inicio, y los gráficos incluyen tooltips (i) con su Objetivo y su Lectura."},
   };
 
   let lienzoCur = null;
@@ -1477,9 +1543,16 @@ const MODULES = [
       { img: "img/lienzos/menu_asistenciales.jpg" },
       { img: "img/lienzos/menu_administrativos.jpg" }
     ] },
+    { label: "Interconsultas", color: "#E0A21A", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M12 10v6M9 13h6"/></svg>`, isNew: true, slides: [
+      { img: "img/lienzos/interconsultas_resumen.jpg" },
+      { img: "img/lienzos/interconsultas_tiempos.jpg" },
+      { img: "img/lienzos/interconsultas_medico.jpg" }
+    ] },
     { label: "Producción", color: "#B8426A", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10M4 10l4-5 4 3 5-6 3 3"/><path d="M20 5v6h-6"/></svg>`, isNew: true, slides: [
       { img: "img/lienzos/produccion_resumen.jpg" },
+      { img: "img/lienzos/produccion_resumen_pesos.jpg" },
       { img: "img/lienzos/produccion_top10.jpg" },
+      { img: "img/lienzos/produccion_top10_pesos.jpg" },
       { img: "img/lienzos/produccion_rips.jpg" },
       { img: "img/lienzos/produccion_detalle.jpg" }
     ] },

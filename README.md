@@ -17,7 +17,7 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 
 ## Módulos activos y lienzos
 
-**Módulos Asistenciales** (12 lienzos)
+**Módulos Asistenciales** (15 lienzos)
 
 | Módulo | Lienzos |
 |---|---|
@@ -25,8 +25,9 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 | Cirugías | **Programación de Cirugías**, **Análisis de Cirugías**, **Análisis por Médico** |
 | Ingresos | Análisis Ingresos, **Ingresos Ejecutivo** |
 | Hospitalización | Estancia, Egresos |
+| Interconsultas | **Resumen y Estados**, **Tiempos de Respuesta**, **Análisis por Médico** |
 
-**Módulos Administrativos** (25 lienzos)
+**Módulos Administrativos** (27 lienzos)
 
 | Módulo | Lienzos |
 |---|---|
@@ -35,10 +36,10 @@ Este repositorio contiene el sitio web comercial de PAIH: una landing page de un
 | Contratos | Contratos IPS, PBS |
 | Glosas | Semáforo Glosas, Glosas, Trámites Cosecha, Gestión Trámites |
 | Facturación | Facturación, Snapshot Facturación, **Facturación Ejecutiva** |
-| Producción | **Producción Resumen**, **Producción Top 10**, **Producción RIPS**, **Producción Detalle** |
+| Producción | **Producción Resumen**, **Producción Resumen $**, **Producción Top 10**, **Producción Top 10 $**, **Producción RIPS**, **Producción Detalle** |
 | Pasivo CxP | **Pasivo por Edades**, **Pasivo por Tercero / Proveedor**, **Pasivo por Cuenta Contable**, **Pasivo por Origen / Tipo CxP**, **Pasivo Anticipos** |
 
-En total: **11 módulos y 37 lienzos** publicados (en negrita, los más recientes). 23 de ellos incluyen **tooltips explicativos (i)**: cada gráfico indica su Objetivo y cómo hacer su Lectura. La estructura sigue el menú del reporte, dividido en *Módulos Asistenciales* y *Módulos Administrativos*, cada uno con un botón para pasar al otro.
+En total: **12 módulos y 42 lienzos** publicados (en negrita, los más recientes). 23 de ellos incluyen **tooltips explicativos (i)**: cada gráfico indica su Objetivo y cómo hacer su Lectura. La estructura sigue el menú del reporte, dividido en *Módulos Asistenciales* y *Módulos Administrativos*, cada uno con un botón para pasar al otro.
 
 ### En roadmap (aún no publicados en el sitio)
 
