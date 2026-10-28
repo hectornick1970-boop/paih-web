@@ -101,3 +101,5 @@ El sitio es un `index.html` con sus imágenes en `img/`. Para actualizarlo:
 
 - Correo: hector_nick@hotmail.com
 - WhatsApp: +57 313 401 6630
+## Galería de menús
+Sección `#menus` en `index.html`: tarjetas por módulo con imágenes en `img/menus/` (anonimizadas: "HOSPITAL PAIH"). Al tocar una tarjeta se abre en grande (`openMenu`).

@@ -157,6 +157,25 @@
   h2{font-size:clamp(26px,3.4vw,36px);margin:0 0 14px;letter-spacing:-0.01em;font-weight:700;}
   .section-head p{color:var(--slate);font-size:16px;line-height:1.6;margin:0;}
 
+
+  /* ===== Galería de menús ===== */
+  #menus{background:#fff;border-top:1px solid var(--line);}
+  .mn-group{margin-bottom:46px;}
+  .mn-group h3{margin:0 0 4px;font-size:21px;}
+  .mn-group>p{margin:0 0 18px;color:var(--slate);font-size:14.5px;}
+  .mn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
+  .mn-card{all:unset;box-sizing:border-box;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s;}
+  .mn-card:hover,.mn-card:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px rgba(11,37,66,.14);outline:2px solid var(--teal);}
+  .mn-thumb{aspect-ratio:4/5;overflow:hidden;background:#eef3f9;display:block;}
+  .mn-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;}
+  .mn-name{padding:10px 12px;font-weight:600;font-size:14px;text-align:center;}
+  .mn-overlay{position:fixed;inset:0;background:rgba(7,20,36,.88);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
+  .mn-overlay.open{display:flex;}
+  .mn-box{position:relative;max-height:100%;overflow:auto;border-radius:12px;background:#fff;max-width:min(560px,100%);}
+  .mn-box img{width:100%;height:auto;}
+  .mn-close{position:fixed;top:14px;right:18px;background:#fff;border:0;border-radius:50%;width:42px;height:42px;font-size:26px;line-height:1;cursor:pointer;z-index:1001;}
+  @media(max-width:560px){.mn-grid{grid-template-columns:repeat(2,1fr);gap:12px;}}
+
   /* ===== Productos ===== */
   #productos{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .grid-products{
@@ -617,6 +636,7 @@
     <nav class="navlinks" id="navLinks">
       <a href="#inicio">Inicio</a>
       <a href="#productos">Productos</a>
+      <a href="#menus">Menús</a>
       <a href="#proximamente">Próximamente</a>
       <a href="#clientes">Clientes</a>
       <a href="#contacto">Contacto</a>
@@ -1212,6 +1232,51 @@
     </div>
   </section>
 
+  <!-- ===== MENÚS POR MÓDULO ===== -->
+  <section id="menus">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Galería</span>
+        <h2>Menús de cada módulo</h2>
+        <p>Así se navega PAIH: cada módulo tiene su menú con los lienzos disponibles. Toque una tarjeta para verla en grande.</p>
+      </div>
+<div class="mn-group"><h3>Módulos financieros</h3><p>Cartera, pasivo, activos fijos, nómina y tesorería</p><div class="mn-grid">
+<button type="button" class="mn-card" onclick="openMenu('img/menus/cartera.jpg','Cartera')"><span class="mn-thumb"><img src="img/menus/cartera.jpg" alt="Menú Cartera — PAIH" loading="lazy"></span><span class="mn-name">Cartera</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/pasivo-cxp.jpg','Pasivo CXP')"><span class="mn-thumb"><img src="img/menus/pasivo-cxp.jpg" alt="Menú Pasivo CXP — PAIH" loading="lazy"></span><span class="mn-name">Pasivo CXP</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/activos-fijos.jpg','Activos fijos')"><span class="mn-thumb"><img src="img/menus/activos-fijos.jpg" alt="Menú Activos fijos — PAIH" loading="lazy"></span><span class="mn-name">Activos fijos</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/nomina.jpg','Nómina')"><span class="mn-thumb"><img src="img/menus/nomina.jpg" alt="Menú Nómina — PAIH" loading="lazy"></span><span class="mn-name">Nómina</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/tesoreria.jpg','Tesorería')"><span class="mn-thumb"><img src="img/menus/tesoreria.jpg" alt="Menú Tesorería — PAIH" loading="lazy"></span><span class="mn-name">Tesorería</span></button>
+</div></div>
+<div class="mn-group"><h3>NIIF · Información financiera</h3><p>Balance de pruebas, estado de resultados y balance general</p><div class="mn-grid">
+<button type="button" class="mn-card" onclick="openMenu('img/menus/niif-balance-pruebas.jpg','Balance de pruebas')"><span class="mn-thumb"><img src="img/menus/niif-balance-pruebas.jpg" alt="Menú Balance de pruebas — PAIH" loading="lazy"></span><span class="mn-name">Balance de pruebas</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/niif-estado-resultados.jpg','Estado de resultados')"><span class="mn-thumb"><img src="img/menus/niif-estado-resultados.jpg" alt="Menú Estado de resultados — PAIH" loading="lazy"></span><span class="mn-name">Estado de resultados</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/niif-balance-general.jpg','Balance general')"><span class="mn-thumb"><img src="img/menus/niif-balance-general.jpg" alt="Menú Balance general — PAIH" loading="lazy"></span><span class="mn-name">Balance general</span></button>
+</div></div>
+<div class="mn-group"><h3>Conciliaciones</h3><p>Cada módulo conciliado contra NIIF</p><div class="mn-grid">
+<button type="button" class="mn-card" onclick="openMenu('img/menus/conc-cartera.jpg','Conciliación Cartera')"><span class="mn-thumb"><img src="img/menus/conc-cartera.jpg" alt="Menú Conciliación Cartera — PAIH" loading="lazy"></span><span class="mn-name">Conciliación Cartera</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/conc-tesoreria.jpg','Conciliación Tesorería')"><span class="mn-thumb"><img src="img/menus/conc-tesoreria.jpg" alt="Menú Conciliación Tesorería — PAIH" loading="lazy"></span><span class="mn-name">Conciliación Tesorería</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/conc-pasivo.jpg','Conciliación Pasivo')"><span class="mn-thumb"><img src="img/menus/conc-pasivo.jpg" alt="Menú Conciliación Pasivo — PAIH" loading="lazy"></span><span class="mn-name">Conciliación Pasivo</span></button>
+</div></div>
+<div class="mn-group"><h3>Módulos asistenciales</h3><p>Citas, cirugías, ingresos, hospitalización, interconsultas y referencia</p><div class="mn-grid">
+<button type="button" class="mn-card" onclick="openMenu('img/menus/citas.jpg','Citas')"><span class="mn-thumb"><img src="img/menus/citas.jpg" alt="Menú Citas — PAIH" loading="lazy"></span><span class="mn-name">Citas</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/cirugias.jpg','Cirugías')"><span class="mn-thumb"><img src="img/menus/cirugias.jpg" alt="Menú Cirugías — PAIH" loading="lazy"></span><span class="mn-name">Cirugías</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/ingresos.jpg','Ingresos')"><span class="mn-thumb"><img src="img/menus/ingresos.jpg" alt="Menú Ingresos — PAIH" loading="lazy"></span><span class="mn-name">Ingresos</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/hospitalizacion.jpg','Hospitalización')"><span class="mn-thumb"><img src="img/menus/hospitalizacion.jpg" alt="Menú Hospitalización — PAIH" loading="lazy"></span><span class="mn-name">Hospitalización</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/interconsultas.jpg','Interconsultas')"><span class="mn-thumb"><img src="img/menus/interconsultas.jpg" alt="Menú Interconsultas — PAIH" loading="lazy"></span><span class="mn-name">Interconsultas</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/referencia.jpg','Referencia y Contrareferencia')"><span class="mn-thumb"><img src="img/menus/referencia.jpg" alt="Menú Referencia y Contrareferencia — PAIH" loading="lazy"></span><span class="mn-name">Referencia y Contrareferencia</span></button>
+</div></div>
+<div class="mn-group"><h3>Módulos administrativos</h3><p>Facturación, radicación, glosas, contratos, producción e inventario</p><div class="mn-grid">
+<button type="button" class="mn-card" onclick="openMenu('img/menus/facturacion.jpg','Facturación')"><span class="mn-thumb"><img src="img/menus/facturacion.jpg" alt="Menú Facturación — PAIH" loading="lazy"></span><span class="mn-name">Facturación</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/radicacion.jpg','Radicación')"><span class="mn-thumb"><img src="img/menus/radicacion.jpg" alt="Menú Radicación — PAIH" loading="lazy"></span><span class="mn-name">Radicación</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/glosas.jpg','Glosas')"><span class="mn-thumb"><img src="img/menus/glosas.jpg" alt="Menú Glosas — PAIH" loading="lazy"></span><span class="mn-name">Glosas</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/contratos.jpg','Contratos')"><span class="mn-thumb"><img src="img/menus/contratos.jpg" alt="Menú Contratos — PAIH" loading="lazy"></span><span class="mn-name">Contratos</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/produccion.jpg','Producción')"><span class="mn-thumb"><img src="img/menus/produccion.jpg" alt="Menú Producción — PAIH" loading="lazy"></span><span class="mn-name">Producción</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/inventario.jpg','Inventario')"><span class="mn-thumb"><img src="img/menus/inventario.jpg" alt="Menú Inventario — PAIH" loading="lazy"></span><span class="mn-name">Inventario</span></button>
+<button type="button" class="mn-card" onclick="openMenu('img/menus/inventario-submenu.jpg','Inventario · Submenú')"><span class="mn-thumb"><img src="img/menus/inventario-submenu.jpg" alt="Menú Inventario · Submenú — PAIH" loading="lazy"></span><span class="mn-name">Inventario · Submenú</span></button>
+</div></div>
+    </div>
+  </section>
+
   <!-- ===== PRÓXIMAMENTE ===== -->
   <section id="proximamente">
     <div class="wrap">
@@ -1339,6 +1404,10 @@
 </a>
 
 <!-- ===== MODAL DE LIENZO ===== -->
+<div class="mn-overlay" id="menuOverlay" onclick="if(event.target!==document.getElementById('menuImg'))closeMenu()">
+  <button class="mn-close" aria-label="Cerrar" onclick="closeMenu()">×</button>
+  <div class="mn-box"><img id="menuImg" src="" alt=""></div>
+</div>
 <div class="lienzo-modal-overlay" id="lienzoOverlay" onclick="if(event.target===this) closeLienzo()">
   <div class="lienzo-modal" role="dialog" aria-modal="true" aria-labelledby="lienzoModalTitle">
     <div class="lienzo-modal-head">
@@ -1765,6 +1834,10 @@ const MODULES = [
   });
 
   renderStoriesBar();
+
+  function openMenu(src,t){var i=document.getElementById('menuImg');i.src=src;i.alt='Menú '+t+' — PAIH';document.getElementById('menuOverlay').classList.add('open');document.body.style.overflow='hidden';}
+  function closeMenu(){document.getElementById('menuOverlay').classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 </script>
 
 </body>
