@@ -612,6 +612,7 @@
   .lm-tabs[hidden]{display:none;}
   .lm-tabs button{all:unset;cursor:pointer;font-size:13px;font-weight:600;color:var(--slate);padding:6px 14px;border-radius:20px;border:1px solid var(--line);background:var(--card);display:inline-flex;align-items:center;gap:6px;}
   .lm-tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .lm-tabs button[hidden]{display:none;}
   .lm-tabs button:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
   .lm-tabs button svg{width:14px;height:14px;}
   .lm-tipnote{margin-top:18px;padding:12px 14px;border-radius:10px;background:var(--teal-dim);color:var(--ink);font-size:14px;line-height:1.55;}
@@ -688,7 +689,7 @@
       <div class="section-head">
         <span class="eyebrow">Suite PAIH</span>
         <h2>Un lienzo para cada decisión</h2>
-        <p>Doce módulos con 42 lienzos de análisis explicados en detalle, agrupados en asistenciales y administrativos, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos. La suite completa, con todos sus menús, está en la galería más abajo.</p>
+        <p>Doce módulos con 42 lienzos de análisis explicados en detalle, agrupados en financieros, administrativos y asistenciales, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos. La suite completa, con todos sus menús, está en la galería más abajo.</p>
       </div>
 
       <div class="stories-bar" id="storiesBar"></div>
@@ -696,12 +697,12 @@
       <div class="novedades" id="novedades">
         <article class="nov-tile">
           <button class="nov-media" onclick="openLienzo('menu')" aria-label="Ver el nuevo menú de navegación">
-            <img src="img/lienzos/menu_asistenciales.jpg" alt="Nuevo menú de PAIH: módulos asistenciales" loading="lazy">
+            <img src="img/lienzos/menu_financieros.jpg" alt="Nuevo menú de PAIH: módulos financieros" loading="lazy">
           </button>
           <div class="nov-body">
             <span class="nov-tag">Nuevo</span>
-            <h3>Menú dividido: asistencial y administrativo</h3>
-            <p>12 módulos y 42 lienzos publicados en detalle, en dos menús — 15 asistenciales y 27 administrativos — con un botón para pasar de uno a otro.</p>
+            <h3>Menú dividido en tres: financiero, administrativo y asistencial</h3>
+            <p>12 módulos y 42 lienzos publicados en detalle, en tres menús — 9 financieros, 18 administrativos y 15 asistenciales — con botones para pasar de uno a otro.</p>
             <button class="nov-btn" onclick="openLienzo('menu')">Ver los menús →</button>
           </div>
         </article>
@@ -953,50 +954,11 @@
 
       <div class="modgroup" id="modulos-administrativos">
         <div class="modgroup-head">
-          <h3>Módulos Administrativos y Financieros</h3>
-          <p>Cartera, Radicación, Contratos, Glosas, Facturación, Producción y Pasivo CxP · 27 lienzos</p>
+          <h3>Módulos Administrativos</h3>
+          <p>Facturación, Radicación, Glosas, Contratos y Producción · 18 lienzos</p>
         </div>
         <div class="lienzo-grid">
 
-        <!-- CARTERA -->
-        <article class="lienzo-card lienzo-card--cartera">
-          <div class="lienzo-head">
-            <span class="lienzo-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
-            </span>
-            <h3>Cartera</h3>
-          </div>
-          <nav class="lienzo-list">
-            <button class="lienzo-item" onclick="openLienzo('cartera_edades')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="20" x2="7" y2="10"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="13"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Cartera por Edades</span>
-                <span class="d">Cartera por rangos de antigüedad (sin vencer a +1825 días), factura por factura.</span>
-              </span>
-            </button>
-            <button class="lienzo-item" onclick="openLienzo('cartera_ejecutiva')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H5a2 2 0 0 1 0-4h13v4"/><path d="M3 5v14a2 2 0 0 0 2 2h15V7"/><circle cx="16.5" cy="14" r="1.2"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Cartera Ejecutiva <span class="new-tag">Nuevo</span></span>
-                <span class="d">Vista ejecutiva de cartera: edad, variación vs el corte anterior, Top 10 EPS y estado de la factura.</span>
-              </span>
-            </button>
-            <button class="lienzo-item" onclick="openLienzo('anticipos')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Anticipos</span>
-                <span class="d">Anticipos disponibles por tercero con consecutivo, fecha y saldo, frente a la cartera neta.</span>
-              </span>
-            </button>
-            <button class="lienzo-item" onclick="openLienzo('anticipos_ejecutivo')">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
-              <span class="lienzo-item-text">
-                <span class="t">Anticipos Ejecutivo <span class="new-tag">Nuevo</span></span>
-                <span class="d">Vista ejecutiva de anticipos por aplicar: antigüedad, concentración por tercero y cobertura sobre la cartera.</span>
-              </span>
-            </button>
-          </nav>
-        </article>
 
         <!-- RADICACIÓN -->
         <article class="lienzo-card lienzo-card--radicacion">
@@ -1184,6 +1146,57 @@
           </nav>
         </article>
 
+
+        </div>
+      </div>
+
+      <div class="modgroup" id="modulos-financieros">
+        <div class="modgroup-head">
+          <h3>Módulos Financieros</h3>
+          <p>Cartera y Pasivo CxP · 9 lienzos</p>
+        </div>
+        <div class="lienzo-grid">
+
+        <!-- CARTERA -->
+        <article class="lienzo-card lienzo-card--cartera">
+          <div class="lienzo-head">
+            <span class="lienzo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+            </span>
+            <h3>Cartera</h3>
+          </div>
+          <nav class="lienzo-list">
+            <button class="lienzo-item" onclick="openLienzo('cartera_edades')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="20" x2="7" y2="10"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="13"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Cartera por Edades</span>
+                <span class="d">Cartera por rangos de antigüedad (sin vencer a +1825 días), factura por factura.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('cartera_ejecutiva')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H5a2 2 0 0 1 0-4h13v4"/><path d="M3 5v14a2 2 0 0 0 2 2h15V7"/><circle cx="16.5" cy="14" r="1.2"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Cartera Ejecutiva <span class="new-tag">Nuevo</span></span>
+                <span class="d">Vista ejecutiva de cartera: edad, variación vs el corte anterior, Top 10 EPS y estado de la factura.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('anticipos')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Anticipos</span>
+                <span class="d">Anticipos disponibles por tercero con consecutivo, fecha y saldo, frente a la cartera neta.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('anticipos_ejecutivo')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Anticipos Ejecutivo <span class="new-tag">Nuevo</span></span>
+                <span class="d">Vista ejecutiva de anticipos por aplicar: antigüedad, concentración por tercero y cobertura sobre la cartera.</span>
+              </span>
+            </button>
+          </nav>
+        </article>
+
         <!-- PASIVO CXP -->
         <article class="lienzo-card lienzo-card--pasivo">
           <div class="lienzo-head">
@@ -1230,7 +1243,6 @@
             </button>
           </nav>
         </article>
-
         </div>
       </div>
 
@@ -1429,6 +1441,7 @@
     <div class="lm-tabs" id="lienzoTabs" role="group" aria-label="Vista del lienzo" hidden>
       <button type="button" data-view="main" class="on" aria-pressed="true" onclick="setLienzoView('main')"><span id="lmMainLbl">Lienzo</span></button>
       <button type="button" data-view="alt" aria-pressed="false" onclick="setLienzoView('alt')"><span class="lm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r="0.7"/></svg></span><span id="lmAltLbl">Con tooltip</span></button>
+      <button type="button" id="lmAlt2Btn" data-view="alt2" aria-pressed="false" onclick="setLienzoView('alt2')" hidden><span id="lmAlt2Lbl">Vista 3</span></button>
     </div>
     <img id="lienzoModalImg" src="" alt="">
     <div class="lienzo-modal-body">
@@ -1562,7 +1575,7 @@
     interconsultas_medico: {"modulo": "Interconsultas", "titulo": "Interconsultas Análisis por Médico", "img": "img/lienzos/interconsultas_medico.jpg", "isNew": true, "sales": "Quién solicita y quién responde: 408 interconsultas del mes, 28 médicos que responden, 17,2 horas promedio de respuesta y 77,2% respondidas en 24 horas o menos. Ordena a los médicos por interconsultas solicitadas, urgentes, % con respuesta y cerradas, mide las horas promedio de quien responde y detalla cada médico solicitante con sus interconsultas pendientes, respondidas y cerradas."},
     produccion_resumen_pesos: {"modulo": "Producción", "titulo": "Producción Resumen en pesos ($)", "img": "img/lienzos/produccion_resumen_pesos.jpg", "isNew": true, "sales": "El resumen de producción expresado en pesos: $11.146 millones de valor total estimado en el mes, $11.112 millones con factura y $34 millones sin factura (99,7% facturado). Separa $10.286 millones en servicios, $860 millones en medicamentos y $195 millones en oxígeno, y los abre por tipo de ingreso (urgencias lidera con $7.500 millones), por área de servicio, por tipo de servicio y por estado de facturación."},
     produccion_top10_pesos: {"modulo": "Producción", "titulo": "Producción Top 10 en pesos ($)", "img": "img/lienzos/produccion_top10_pesos.jpg", "isNew": true, "sales": "Qué genera más valor: los 10 servicios IPS, los 10 medicamentos y suministros y las 10 áreas de servicio con mayor valor en pesos. Hospitalización estancia general lidera las áreas con $1.673 millones y la internación de adultos de complejidad mediana lidera los servicios con $1.515 millones. Arriba, el valor total ($11 mil millones), con factura, sin factura ($751 millones), entidad y paciente."},
-    menu: {"modulo": "Nuevo menú", "titulo": "Menú de navegación PAIH", "img": "img/lienzos/menu_asistenciales.jpg", "alt": {"img": "img/lienzos/menu_administrativos.jpg", "label": "Administrativos", "kind": "view"}, "mainLabel": "Asistenciales", "isNew": true, "sales": "Un solo punto de entrada para todo PAIH, ahora dividido en dos menús: Módulos Asistenciales (Citas, Cirugías, Ingresos, Hospitalización e Interconsultas: 15 lienzos) y Módulos Administrativos (Cartera, Radicación, Contratos, Glosas, Facturación, Producción y Pasivo CxP: 27 lienzos). Un botón en cada menú permite pasar de uno a otro; cada lienzo tiene su navegación entre lienzos del mismo módulo y su regreso a Inicio, y los gráficos incluyen tooltips (i) con su Objetivo y su Lectura."},
+    menu: {"modulo": "Nuevo menú", "titulo": "Menú de navegación PAIH", "img": "img/lienzos/menu_financieros.jpg", "alt": {"img": "img/lienzos/menu_administrativos.jpg", "label": "Administrativos", "kind": "view"}, "alt2": {"img": "img/lienzos/menu_asistenciales.jpg", "label": "Asistenciales"}, "mainLabel": "Financieros", "isNew": true, "sales": "Un solo punto de entrada para todo PAIH, ahora dividido en tres menús: Módulos Financieros (Cartera, Pasivo CxP, Activos fijos, Nómina, Conciliaciones, Tesorería y NIIF), Módulos Administrativos (Facturación, Radicación, Glosas, Contratos, Producción e Inventario) y Módulos Asistenciales (Citas, Cirugías, Ingresos, Hospitalización, Interconsultas, Referencia y Contrareferencia y Triage). Un botón en cada menú permite pasar de uno a otro; cada lienzo tiene su navegación entre lienzos del mismo módulo y su regreso a Inicio, y los gráficos incluyen tooltips (i) con su Objetivo y su Lectura."},
   };
 
   let lienzoCur = null;
@@ -1571,11 +1584,12 @@
     const d = LIENZOS[lienzoCur];
     if (!d) return;
     const useAlt = (view === 'alt' || view === 'tip') && d.alt;
+    const useAlt2 = view === 'alt2' && d.alt2;
     const img = document.getElementById('lienzoModalImg');
-    img.src = useAlt ? d.alt.img : d.img;
+    img.src = useAlt2 ? d.alt2.img : (useAlt ? d.alt.img : d.img);
     img.alt = (useAlt && d.alt.kind === 'tip' ? 'Tooltip explicativo del lienzo ' : 'Captura de ') + d.titulo;
     document.querySelectorAll('#lienzoTabs button').forEach(function (btn) {
-      const on = btn.dataset.view === (useAlt ? 'alt' : 'main');
+      const on = btn.dataset.view === (useAlt2 ? 'alt2' : (useAlt ? 'alt' : 'main'));
       btn.classList.toggle('on', on);
       btn.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
@@ -1596,6 +1610,9 @@
       document.getElementById('lmAltLbl').textContent = d.alt.label;
       tabs.classList.toggle('lm-tabs--tip', d.alt.kind === 'tip');
     }
+    const t3 = document.getElementById('lmAlt2Btn');
+    t3.hidden = !d.alt2;
+    if (d.alt2) document.getElementById('lmAlt2Lbl').textContent = d.alt2.label;
     document.getElementById('lienzoModalTipNote').hidden = !(d.alt && d.alt.kind === 'tip');
     setLienzoView(view || 'main');
     document.querySelector('.lienzo-modal').scrollTop = 0;
