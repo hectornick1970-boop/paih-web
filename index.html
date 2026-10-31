@@ -385,6 +385,9 @@
   .lienzo-card--cartera .lienzo-head{background:#7A8C3E;}
   .lienzo-card--cartera .chip{background:rgba(122,140,62,0.11);color:#7A8C3E;}
   .lienzo-card--cartera .lienzo-item:hover{background:rgba(122,140,62,0.07);}
+  .lienzo-card--triage .lienzo-head{background:#F57C00;}
+  .lienzo-card--triage .chip{background:rgba(245,124,0,0.12);color:#C46200;}
+  .lienzo-card--triage .lienzo-item:hover{background:rgba(245,124,0,0.07);}
   .lienzo-card--interconsultas .lienzo-head{background:#E0A21A;}
   .lienzo-card--interconsultas .chip{background:rgba(224,162,26,0.14);color:#A87508;}
   .lienzo-card--interconsultas .lienzo-item:hover{background:rgba(224,162,26,0.09);}
@@ -689,7 +692,7 @@
       <div class="section-head">
         <span class="eyebrow">Suite PAIH</span>
         <h2>Un lienzo para cada decisión</h2>
-        <p>Doce módulos con 42 lienzos de análisis explicados en detalle, agrupados en financieros, administrativos y asistenciales, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos. La suite completa, con todos sus menús, está en la galería más abajo.</p>
+        <p>Trece módulos con 48 lienzos de análisis explicados en detalle, agrupados en financieros, administrativos y asistenciales, cada uno enfocado en un proceso crítico de la operación hospitalaria — con menú unificado y tooltips explicativos en los gráficos. La suite completa, con todos sus menús, está en la galería más abajo.</p>
       </div>
 
       <div class="stories-bar" id="storiesBar"></div>
@@ -702,7 +705,7 @@
           <div class="nov-body">
             <span class="nov-tag">Nuevo</span>
             <h3>Menú dividido en tres: financiero, administrativo y asistencial</h3>
-            <p>12 módulos y 42 lienzos publicados en detalle, en tres menús — 9 financieros, 18 administrativos y 15 asistenciales — con botones para pasar de uno a otro.</p>
+            <p>13 módulos y 48 lienzos publicados en detalle, en tres menús — 9 financieros, 18 administrativos y 21 asistenciales — con botones para pasar de uno a otro.</p>
             <button class="nov-btn" onclick="openLienzo('menu')">Ver los menús →</button>
           </div>
         </article>
@@ -780,9 +783,63 @@
       <div class="modgroup" id="modulos-asistenciales">
         <div class="modgroup-head">
           <h3>Módulos Asistenciales</h3>
-          <p>Citas, Cirugías, Ingresos, Hospitalización e Interconsultas · 15 lienzos</p>
+          <p>Triage, Citas, Cirugías, Ingresos, Hospitalización e Interconsultas · 21 lienzos</p>
         </div>
         <div class="lienzo-grid">
+
+        <!-- TRIAGE -->
+        <article class="lienzo-card lienzo-card--triage">
+          <div class="lienzo-head">
+            <span class="lienzo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></svg>
+            </span>
+            <h3>Urgencias · Triage</h3>
+          </div>
+          <nav class="lienzo-list">
+            <button class="lienzo-item" onclick="openLienzo('triage_resumen')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="3.5" height="8"/><rect x="10.2" y="6" width="3.5" height="14"/><rect x="16.5" y="9" width="3.5" height="11"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Triage Resumen <span class="new-tag">Nuevo</span></span>
+                <span class="d">Triages por mes, nivel, centro y EPS; ingreso, estado final y reingresos antes de 72 horas.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('triage_embudo')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-7 8.5V19l-4 2v-8.5z"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Triage Embudo <span class="new-tag">Nuevo</span></span>
+                <span class="d">Del turno al triage, al ingreso y a la atención médica, por centro y nivel de triage.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('triage_tiempos')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Triage Tiempos <span class="new-tag">Nuevo</span></span>
+                <span class="d">Espera para el triage, duración y tiempo del turno al médico, por hora de llegada, centro y nivel.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('triage_calidad')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r="0.6"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Triage Calidad del dato <span class="new-tag">Nuevo</span></span>
+                <span class="d">Turnos sin triage, triages sin turno, triages abiertos y casos con ingreso sin atención médica.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('triage_detalle')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Triage Detalle <span class="new-tag">Nuevo</span></span>
+                <span class="d">Cada triage y cada turno sin triage, con tiempos, ingreso y reingreso. Sin datos personales del paciente.</span>
+              </span>
+            </button>
+            <button class="lienzo-item" onclick="openLienzo('triage_comparativo')">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="20" x2="7" y2="10"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="17" y1="20" x2="17" y2="13"/></svg></span>
+              <span class="lienzo-item-text">
+                <span class="t">Triage Comparativos <span class="new-tag">Nuevo</span></span>
+                <span class="d">Cada mes frente al mismo mes del año anterior: volumen, reingresos y tiempos, con comparativo por sede.</span>
+              </span>
+            </button>
+          </nav>
+        </article>
 
         <!-- CITAS -->
         <article class="lienzo-card lienzo-card--citas">
@@ -1255,7 +1312,7 @@
       <div class="section-head">
         <span class="eyebrow">Galería</span>
         <h2>Menús de cada módulo</h2>
-        <p>Así se navega PAIH: cada módulo tiene su menú con los lienzos disponibles. Toque una tarjeta para verla en grande. Aquí está la suite completa; los módulos de Nómina, Activos fijos, Tesorería, NIIF, Conciliaciones, Inventario y Triage ya tienen menú y sus lienzos se publican en detalle próximamente.</p>
+        <p>Así se navega PAIH: cada módulo tiene su menú con los lienzos disponibles. Toque una tarjeta para verla en grande. Aquí está la suite completa; los módulos de Nómina, Activos fijos, Tesorería, NIIF, Conciliaciones e Inventario ya tienen menú y sus lienzos se publican en detalle próximamente.</p>
       </div>
 <div class="mn-group"><h3>Módulos financieros</h3><p>Cartera, pasivo, activos fijos, nómina y tesorería</p><div class="mn-grid">
 <button type="button" class="mn-card" onclick="openMenu('img/menus/cartera.jpg','Cartera')"><span class="mn-thumb"><img src="img/menus/cartera.jpg" alt="Menú Cartera — PAIH" loading="lazy"></span><span class="mn-name">Cartera</span></button>
@@ -1311,7 +1368,7 @@
           </span>
           <div class="roadmap-text">
             <span class="roadmap-title">Lienzos en detalle de los módulos nuevos</span>
-            <span class="roadmap-desc">Nómina, Activos fijos, Tesorería, NIIF, Conciliaciones, Inventario y Triage ya tienen menú en la galería; sus lienzos se irán publicando uno a uno. Si necesita uno a la medida, escríbanos desde el formulario de contacto.</span>
+            <span class="roadmap-desc">Nómina, Activos fijos, Tesorería, NIIF, Conciliaciones e Inventario ya tienen menú en la galería; sus lienzos se irán publicando uno a uno. Si necesita uno a la medida, escríbanos desde el formulario de contacto.</span>
           </div>
         </div>
       </div>
@@ -1545,6 +1602,12 @@
     ingresos_ejecutivo: {"modulo": "Ingresos", "titulo": "Ingresos Ejecutivo", "img": "img/lienzos/ingresos_ejecutivo.jpg", "isNew": true, "sales": "Vista de dirección: 91 mil ingresos efectivos, promedio diario de 327,8, 11,2% hospitalizados, 33,6% por urgencias, 1,8% de anulación y 98,5% facturados, con -8,3% frente al mes anterior. Suma la mezcla ambulatorio vs hospitalizado, el comparativo por sede y el mapa de calor de cuándo ingresan los pacientes. Su tooltip explica que las columnas son los ingresos efectivos del mes (sin anulados) y la línea el promedio diario, para comparar meses con distinta cantidad de días.", "alt": {"img": "img/lienzos/ingresos_ejecutivo_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
     estancia: {"modulo": "Hospitalización", "titulo": "Estancia", "img": "img/lienzos/estancia.jpg", "sales": "Ocupación al corte de 41,6%: 207 camas ocupadas de 498, 4 en mantenimiento y 215 disponibles. Una narrativa automática traduce la cifra a un semáforo (\"ocupación normal\") y la tabla desglosa la ocupación por sede, para saber dónde hay presión y dónde hay capacidad."},
     egresos: {"modulo": "Hospitalización", "titulo": "Egresos", "img": "img/lienzos/egresos.jpg", "sales": "133.615 egresos con un promedio de estancia de 5,49 días, 3.161 partos y 1,36% de mortalidad (el 39,55% de ella ocurrió antes de 48 horas). Egresos con y sin cama por sede y por área de servicio. Su tooltip aclara que el PDE es el promedio de días de estancia de los egresos de hospitalización y que un PDE alto indica estancias largas.", "alt": {"img": "img/lienzos/egresos_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
+    triage_resumen: {"modulo": "Urgencias · Triage", "titulo": "Triage Resumen", "img": "img/lienzos/triage_resumen.jpg", "isNew": true, "sales": "4.342 triages en el período: 3.493 prioritarios (niveles 1-3) y 849 no prioritarios (4-5), además de 813 turnos que no llegaron a triage. El 98,6% de los triages 1-3 tiene ingreso y se registran 184 reingresos antes de 72 horas (4,2%). Muestra triages por mes, por nivel y por centro de atención, el Top 10 de EPS, el estado final y los reingresos por centro, con una narrativa automática en cada bloque."},
+    triage_embudo: {"modulo": "Urgencias · Triage", "titulo": "Triage Embudo", "img": "img/lienzos/triage_embudo.jpg", "isNew": true, "sales": "El recorrido del paciente: 5 mil turnos, 4.342 triages, 3.454 con ingreso (79,5%) y 3.404 atendidos por el médico (78,4%), con 468 retiros voluntarios y 20 reclasificados. En los triages 1-3 el 97,5% fue atendido por el médico. Una matriz por centro de atención y nivel de triage permite ver dónde se pierde el paciente."},
+    triage_tiempos: {"modulo": "Urgencias · Triage", "titulo": "Triage Tiempos", "img": "img/lienzos/triage_tiempos.jpg", "isNew": true, "sales": "Para los niveles 1-3: 30 minutos de espera para el triage, que dura 25; 36 minutos del triage al médico y 65 del turno al médico (mediana de 54). Se analiza por mes, por hora de llegada, por centro y por nivel (Triage I: 81 min, II: 62, III: 65) para ubicar los picos de espera."},
+    triage_calidad: {"modulo": "Urgencias · Triage", "titulo": "Triage Calidad del dato", "img": "img/lienzos/triage_calidad.jpg", "isNew": true, "sales": "Encuentra los casos que requieren revisión: 813 turnos sin triage (570 ausentes, 217 pendientes y 26 atendidos), 104 triages sin turno, 41 triages abiertos, 39 con ingreso sin atención médica, 20 reclasificados y 184 reingresos antes de 72 horas. Cada gráfico se abre por centro de atención, estado y nivel."},
+    triage_detalle: {"modulo": "Urgencias · Triage", "titulo": "Triage Detalle", "img": "img/lienzos/triage_detalle.jpg", "isNew": true, "sales": "El detalle triage por triage: fecha, centro, tipo (triage o turno sin triage), turno, nivel, estado final, inicio del triage, atención médica, esperas, ingreso, reingreso a 72 horas y EPS. No incluye datos personales del paciente y el número de ingreso se muestra enmascarado, conforme a la Ley 1581 de 2012."},
+    triage_comparativo: {"modulo": "Urgencias · Triage", "titulo": "Triage Comparativos", "img": "img/lienzos/triage_comparativo.jpg", "isNew": true, "sales": "Compara cada mes con el mismo mes del año anterior: 40.515 triages del año comparado frente a 26.131 del año anterior, con triages 1-3 y 4-5, reingresos antes de 72 horas y tiempos de atención por mes, y una tabla comparativa por sede."},
     cartera_edades: {"modulo": "Cartera", "titulo": "Cartera por Edades", "img": "img/lienzos/cartera_edades.jpg", "sales": "Cartera bruta de 156,21 mil millones, con 61,11 mil millones en anticipos disponibles y 95,09 mil millones de cartera neta; 90,2% está vencida (140,86 mil millones) y 20,5% en glosa. La antigüedad queda abierta por rangos, de sin vencer a más de 1.825 días, y baja hasta cada factura."},
     cartera_ejecutiva: {"modulo": "Cartera", "titulo": "Cartera Ejecutiva", "img": "img/lienzos/cartera_ejecutiva.jpg", "isNew": true, "sales": "Cartera total de 156 mil millones (+2,2% frente al corte anterior): 90,2% vencida, 36,5% con más de 360 días, 20,5% en glosa y 15 mil millones sin radicar, con cuatro lecturas automáticas, Top 10 EPS y estado de la factura. Su tooltip explica que las columnas rojas son la prioridad de cobro y conciliación.", "alt": {"img": "img/lienzos/cartera_ejecutiva_tooltip.jpg", "label": "Con tooltip", "kind": "tip"}},
     anticipos: {"modulo": "Cartera", "titulo": "Anticipos", "img": "img/lienzos/anticipos.jpg", "sales": "61.111 millones en anticipos disponibles frente a una cartera bruta de 156.206 millones y una cartera neta de 95.094 millones. Detalle por consecutivo, fecha y saldo; la identificación de cada titular se protege conforme a la Ley 1581 de 2012."},
